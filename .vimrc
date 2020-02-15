@@ -5,11 +5,9 @@ Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
 Plug 'zah/nim.vim', { 'for': ['nim'] }
 Plug 'melrief/vim-frege-syntax', { 'for': ['frege'] }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'tomasr/molokai'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
-"Plug 'AlessandroYorba/Alduin'
 Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
 Plug 'thinca/vim-visualstar'
@@ -21,7 +19,7 @@ Plug 'lervag/vimtex'
 Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Yggdroot/indentLine'
+Plug 'ggdroot/indentLine'
 Plug 'vim-jp/vim-cpp'
 Plug 'rhysd/wandbox-vim'
 Plug 'osyo-manga/vim-marching'
@@ -35,10 +33,10 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite-outline'
 Plug 'hewes/unite-gtags'
-"Plug 'KKPMW/moonshine-vim'
 Plug 'morhetz/gruvbox'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
-
 
 setlocal omnifunc=syntaxcomplete#Complete
 set number
@@ -49,11 +47,8 @@ set langmenu=en_US.UTF-8
 language messages en_US.UTF-8
 set backspace=indent,eol,start
 
-syntax on
-"let g:alduin_Shout_Dragon_Aspect = 1
-"colorscheme alduin
-"colorscheme moonshine
-colorscheme gruvbox
+syntax enable
+colorscheme seoul256
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -99,3 +94,8 @@ nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
+
+imap <S-> <nop>
+set pastetoggle=<S->
+
+
