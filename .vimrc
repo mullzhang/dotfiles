@@ -19,7 +19,7 @@ Plug 'lervag/vimtex'
 Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 Plug 'vim-jp/vim-cpp'
 Plug 'rhysd/wandbox-vim'
 Plug 'osyo-manga/vim-marching'
@@ -36,6 +36,7 @@ Plug 'hewes/unite-gtags'
 Plug 'morhetz/gruvbox'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'altercation/vim-colors-solarized'
+Plug 'Shougo/vimfiler.vim'
 call plug#end()
 
 setlocal omnifunc=syntaxcomplete#Complete
@@ -48,7 +49,8 @@ language messages en_US.UTF-8
 set backspace=indent,eol,start
 
 syntax enable
-colorscheme seoul256
+"colorscheme seoul256
+colorscheme darkblue
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -98,4 +100,9 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 imap <S-> <nop>
 set pastetoggle=<S->
 
+nmap te :tabedit
+nmap tl :Unite tab
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
 
+nmap sf :VimFiler
