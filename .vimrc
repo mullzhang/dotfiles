@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/seoul256.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
 Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
 Plug 'zah/nim.vim', { 'for': ['nim'] }
@@ -39,7 +38,7 @@ Plug 'ujihisa/unite-colorscheme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Yggdroot/indentLine'
-" Plug 'goerz/jupytext.vim'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 setlocal omnifunc=syntaxcomplete#Complete
@@ -55,14 +54,8 @@ set fileencodings=utf-8,cp932,euc-jp,sjis
 set fileformats=unix,dos,mac
 
 syntax enable
-"colorscheme seoul256
-" colorscheme darkblue
 colorscheme gruvbox
-"colorscheme seoul256
 set background=dark
-"colorscheme solarized
-
-map <C-n> :NERDTreeToggle<CR>
 
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 function! Preserve(command)
@@ -91,7 +84,6 @@ endfunction
 
 autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
-"set list listchars=tab:\¦\
 let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim']
 
 let g:ycm_global_ycm_extra_conf = '${HOME}/dotfiles/.ycm_extra_conf.py'
@@ -118,6 +110,40 @@ nmap tl :Unite tab
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
-nmap sf :VimFiler
+" plit window
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
 
-" let g:jupytext_fmt='py'
+" Move window
+nmap <Space> <C-w>w
+map s<left> <C-w>h
+map s<up> <C-w>k
+map s<down> <C-w>j
+map s<right> <C-w>l
+map sh <C-w>h
+map sk <C-w>k
+map sj <C-w>j
+map sl <C-w>l
+
+" Resize window
+nmap <C-w><left> <C-w><
+nmap <C-w><right> <C-w>>
+nmap <C-w><up> <C-w>+
+nmap <C-w><down> <C-w>-
+
+" VimFiler
+nmap sf :VimFilerBufferDir<Return>
+nmap sF :VimFilerExplorer -find<Return>
+nmap sb :Unite buffer<Return>
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_enable_auto_cd = 0
+let g:vimfiler_tree_leaf_icon = ''
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_marked_file_icon = '✓'
+
+" Ale
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
