@@ -25,7 +25,6 @@ Plug 'rhysd/wandbox-vim'
 Plug 'osyo-manga/vim-marching'
 Plug 't9md/vim-quickhl'
 Plug 'jceb/vim-hier'
-Plug 'tyru/caw.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/neocomplete.vim'
@@ -39,6 +38,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'dense-analysis/ale'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'previm/previm'
 call plug#end()
 
 setlocal omnifunc=syntaxcomplete#Complete
@@ -94,9 +96,6 @@ set splitbelow
 
 map <C-n> :NERDTreeToggle<CR>
 
-nmap <C-K> <Plug>(caw:hatpos:toggle)
-vmap <C-K> <Plug>(caw:hatpos:toggle)
-
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
@@ -105,8 +104,8 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 imap <S-> <nop>
 set pastetoggle=<S->
 
-nmap te :tabedit
-nmap tl :Unite tab
+nmap te :tabedit<Return>
+nmap tl :Unite tab<Return>
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
@@ -147,3 +146,19 @@ let g:vimfiler_marked_file_icon = '✓'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+let g:lightline = {
+  \'active': {
+  \  'left': [
+  \    ['mode', 'paste'],
+  \    ['readonly', 'filename', 'modified', 'ale'],
+  \  ]
+  \},
+  \'component_function': {
+  \  'ale': 'ALEGetStatusLine'
+  \}
+  \ }
+
+" previm
+let g:vim_markdown_folding_disabled = 1
+let g:previm_enable_realtime = 1
+let g:previm_open_cmd = 'open -a Google\ Chrome'
