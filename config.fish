@@ -1,8 +1,8 @@
 # PATH
-set PATH "/usr/local/bin" $PATH
-set PATH "/usr/local/sbin" $PATH
-set PATH "/usr/local/opt/openssl/bin" $PATH
-set PATH "/usr/local/opt/ruby/bin" $PATH
+set -x PATH "/usr/local/bin" $PATH
+set -x PATH "/usr/local/sbin" $PATH
+set -x PATH "/usr/local/opt/openssl/bin" $PATH
+set -x PATH "/usr/local/opt/ruby/bin" $PATH
 
 # Python
 set -x PATH $HOME/.pyenv/bin $PATH
