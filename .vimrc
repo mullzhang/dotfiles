@@ -1,49 +1,22 @@
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
-Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
-Plug 'zah/nim.vim', { 'for': ['nim'] }
-Plug 'melrief/vim-frege-syntax', { 'for': ['frege'] }
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Shougo/unite.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'kien/ctrlp.vim'
-Plug 'thinca/vim-visualstar'
-Plug 'davidhalter/jedi-vim'
-Plug 'ervandew/supertab'
-Plug 'tomtom/tcomment_vim'
-Plug 'osyo-manga/vim-over'
-Plug 'lervag/vimtex'
-Plug 'nvie/vim-flake8'
-Plug 'tell-k/vim-autopep8'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Yggdroot/indentLine'
-Plug 'vim-jp/vim-cpp'
-Plug 'rhysd/wandbox-vim'
-Plug 'osyo-manga/vim-marching'
-Plug 't9md/vim-quickhl'
-Plug 'jceb/vim-hier'
-Plug 'thinca/vim-quickrun'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/unite-outline'
-Plug 'hewes/unite-gtags'
-Plug 'morhetz/gruvbox'
-Plug 'ujihisa/unite-colorscheme'
-Plug 'altercation/vim-colors-solarized'
-Plug 'Shougo/vimfiler.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'dense-analysis/ale'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'previm/previm'
+Plug 'davidhalter/jedi-vim'  " Using the jedi autocompletion library for VIM.
+Plug 'ervandew/supertab'  " Perform all your vim insert mode completions with Tab
+Plug 'tell-k/vim-autopep8'  " autopep8 plugin for Vim
+Plug 'Shougo/unite.vim'  " Unite and create user interfaces
+Plug 'Shougo/vimfiler.vim'  " Powerful file explorer implemented by Vim script
+Plug 'Shougo/vimproc.vim'  " Interactive command execution in Vim.
+Plug 'morhetz/gruvbox'  " Retro groove color scheme for Vim
+Plug 'dense-analysis/ale'  " Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
+Plug 'sheerun/vim-polyglot'  " A solid language pack for Vim.
+Plug 'tpope/vim-surround'  " surround.vim: quoting/parenthesizing made simple
+Plug 'tyru/open-browser.vim'  " Open URI with your favorite browser from your most favorite editor
+Plug 'tomtom/tcomment_vim'  " An extensible & universal comment vim-plugin that also handles embedded filetypes
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Distraction-free writing in Vim
+Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
+Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with thin vertical lines
 call plug#end()
 
-setlocal omnifunc=syntaxcomplete#Complete
+" Basic
 set number
 set expandtab
 set tabstop=4
@@ -51,16 +24,19 @@ set shiftwidth=4
 set langmenu=en_US.UTF-8
 language messages en_US.UTF-8
 set backspace=indent,eol,start
-set encoding=utf-8
-set fileencodings=utf-8,cp932,euc-jp,sjis
-set fileformats=unix,dos,mac
+set smartindent
 
+" Color scheme
 syntax enable
 colorscheme gruvbox
 set background=dark
 
+" Python execution
+nmap <C-S-f> :!python %<Return>
+
+" Autopep8
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
-function! Preserve(command)
+function! Preserve(command) 
     " Save the last search.
     let search = @/
     " Save the current cursor position.
@@ -83,33 +59,15 @@ endfunction
 function! Autopep8()
     call Preserve(':silent %!autopep8 --ignore=E501 -')
 endfunction
-
 autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim']
-
-let g:ycm_global_ycm_extra_conf = '${HOME}/dotfiles/.ycm_extra_conf.py'
-let g:ycm_auto_trigger = 1
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_autoclose_preview_window_after_insertion = 1
-set splitbelow
-
-map <C-n> :NERDTreeToggle<CR>
-
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
-
-imap <S-> <nop>
-set pastetoggle=<S->
-
+" Tab
 nmap te :tabedit<Return>
 nmap tl :Unite tab<Return>
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
-" plit window
+" Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 
@@ -146,6 +104,9 @@ let g:vimfiler_marked_file_icon = '✓'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+let g:ale_python_flake8_args = '--ignore=E501'
+let g:ale_python_flake8_executable = 'flake8'
+let g:ale_python_flake8_options = '--ignore=E501'
 let g:lightline = {
   \'active': {
   \  'left': [
@@ -158,7 +119,8 @@ let g:lightline = {
   \}
   \ }
 
-" previm
-let g:vim_markdown_folding_disabled = 1
-let g:previm_enable_realtime = 1
-let g:previm_open_cmd = 'open -a Google\ Chrome'
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
