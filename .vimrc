@@ -25,6 +25,8 @@ set langmenu=en_US.UTF-8
 language messages en_US.UTF-8
 set backspace=indent,eol,start
 set smartindent
+set wildmenu
+set wildmode=full
 
 " Color scheme
 syntax enable
