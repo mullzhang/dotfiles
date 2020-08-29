@@ -51,7 +51,7 @@ function gi
 end
 
 # peco
-function peco_select_history_order
+function ph
     if test (count $argv) = 0
         set peco_flags --layout=bottom-up
     else
@@ -67,7 +67,7 @@ function peco_select_history_order
     end
 end
 
-function peco_z
+function pz
     set -l query (commandline)
 
     if test -n $query
@@ -83,6 +83,6 @@ function peco_z
 end
 
 function fish_user_key_bindings
-    bind \cr peco_select_history_order
-    bind \ce peco_z
+    bind \cr pecoho
+    bind \ce pecoz
 end
