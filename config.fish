@@ -11,6 +11,9 @@ source (pyenv init - | psub)
 # Flutter
 set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
 
+# Node.js
+set -x PATH $HOME/.nodebrew/current/bin $PATH
+
 ##########
 # alias
 alias ls "ls -aG"
