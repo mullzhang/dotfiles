@@ -27,6 +27,7 @@ set backspace=indent,eol,start
 set smartindent
 set wildmenu
 set wildmode=full
+set history=200
 
 " Color scheme
 syntax enable

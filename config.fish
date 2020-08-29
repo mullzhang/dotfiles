@@ -8,6 +8,9 @@ set -x PATH "/usr/local/opt/ruby/bin" $PATH
 set -x PATH $HOME/.pyenv/bin $PATH
 source (pyenv init - | psub)
 
+# Flutter
+set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
+
 ##########
 # alias
 alias ls "ls -aG"
