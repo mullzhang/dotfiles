@@ -38,6 +38,9 @@ alias gl 'git log'
 # jupyter notebook
 alias jn 'jupyter notebook'
 
+# jupyter lab
+alias jl 'jupyter lab'
+
 # ghq
 alias g 'cd (ghq root)/(ghq list | peco)'
 
