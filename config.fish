@@ -86,6 +86,25 @@ function pz
 end
 
 function fish_user_key_bindings
-    bind \cr pecoho
-    bind \ce pecoz
+    bind \cr ph
+    bind \ce pz
+end
+
+# check how many processes is running iv ssh
+function topssh
+    if test (count $argv) = 0
+        echo 'error: wrong number of arguments'
+        echo 'usage: topssh SERVER_ID'
+    else
+        sshauto $argv[1] '-t top -n 1'
+    end
+end
+
+# ssh auto login with expect command (installed via brew)
+function sshauto
+    if test (count $argv) = 0
+        . ~/.ssh/auto_login.fish
+    else
+        . ~/.ssh/auto_login.fish $argv
+    end
 end
