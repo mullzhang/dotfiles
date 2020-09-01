@@ -14,9 +14,6 @@ set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
 # Node.js
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 
-# snap
-set -x PATH /snap/bin $PATH
-
 ##########
 # alias
 alias ls "ls -aG"
