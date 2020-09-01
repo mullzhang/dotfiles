@@ -32,6 +32,7 @@ alias gb 'git branch'
 alias gst 'git status'
 alias gco 'git checkout'
 alias gf 'git fetch'
+alias gpl 'git pull'
 alias gc 'git commit'
 alias gl 'git log'
 
