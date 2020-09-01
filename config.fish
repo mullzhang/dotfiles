@@ -41,6 +41,9 @@ alias jn 'jupyter notebook'
 # ghq
 alias g 'cd (ghq root)/(ghq list | peco)'
 
+# hub
+alias gh 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
+
 ##########
 # tmux split window
 function ide
