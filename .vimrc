@@ -15,6 +15,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Distraction-free writing in Vim
 Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
 Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with thin vertical lines
 Plug 'integralist/vim-mypy'  " Vim plugin for executing Python's optional static type checker MyPy
+Plug 'ConradIrwin/vim-bracketed-paste'  " vim-bracketed-paste enables transparent pasting into vim.
 call plug#end()
 
 " Basic
