@@ -14,6 +14,7 @@ Plug 'tomtom/tcomment_vim'  " An extensible & universal comment vim-plugin that 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Distraction-free writing in Vim
 Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
 Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with thin vertical lines
+Plug 'integralist/vim-mypy'  " Vim plugin for executing Python's optional static type checker MyPy
 call plug#end()
 
 " Basic
