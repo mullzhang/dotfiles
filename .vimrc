@@ -16,6 +16,8 @@ Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying i
 Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with thin vertical lines
 Plug 'integralist/vim-mypy'  " Vim plugin for executing Python's optional static type checker MyPy
 Plug 'ConradIrwin/vim-bracketed-paste'  " vim-bracketed-paste enables transparent pasting into vim.
+Plug 'vim-scripts/grep.vim'  " Plugin to integrate various grep like search tools with Vim.
+Plug 'mattn/jvgrep'  " jvgrep is grep for Japanese vimmer. You can find text from files that written in another Japanese encodings.
 call plug#end()
 
 " Basic
@@ -129,3 +131,12 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
+" Rgrep
+nmap gr :Rgrep<CR>
+let Grep_Skip_Dirs = '.svn .git'  " ignore the directories
+let Grep_Default_Options = '-I'   " grep no binary files
+let Grep_Skip_Files = '*.bak *~'  " ignore the backup file
+
+if executable('jvgrep')
+  set grepprg=jvgrep
+endif
