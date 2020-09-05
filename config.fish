@@ -8,11 +8,12 @@ set -x PATH "/usr/local/opt/ruby/bin" $PATH
 set -x PATH $HOME/.pyenv/bin $PATH
 source (pyenv init - | psub)
 
+# anyenv
+set -x PATH $HOME/.anyenv/bin $PATH
+eval (anyenv init - | source)
+
 # Flutter
 set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
-
-# Node.js
-set -x PATH $HOME/.nodebrew/current/bin $PATH
 
 ##########
 # alias
