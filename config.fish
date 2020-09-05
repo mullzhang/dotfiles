@@ -4,10 +4,6 @@ set -x PATH "/usr/local/sbin" $PATH
 set -x PATH "/usr/local/opt/openssl/bin" $PATH
 set -x PATH "/usr/local/opt/ruby/bin" $PATH
 
-# Python
-set -x PATH $HOME/.pyenv/bin $PATH
-source (pyenv init - | psub)
-
 # anyenv
 set -x PATH $HOME/.anyenv/bin $PATH
 eval (anyenv init - | source)
