@@ -112,3 +112,27 @@ function sshauto
         . ~/.ssh/auto_login.fish $argv
     end
 end
+
+# Google search
+# Source: https://gist.github.com/yasny/8893315
+function google
+    set -l opt
+    set -l str
+  
+    if [ -n "$argv" ]
+        for o in $argv
+            set str "$str+$o"
+        end
+  
+        set str (echo $str | sed 's/^\+//')
+        set opt "search?num=50&hl=en&q=$str"
+    end
+    open -a Google\ Chrome "http://www.google.com/$opt"
+end
+
+# AllAcronyms search
+function acr
+    if [ -n "$argv" ]
+        open -a Google\ Chrome "https://www.allacronyms.com/$argv[1]/abbreviated"
+    end
+end
