@@ -18,6 +18,7 @@ Plug 'integralist/vim-mypy'  " Vim plugin for executing Python's optional static
 Plug 'ConradIrwin/vim-bracketed-paste'  " vim-bracketed-paste enables transparent pasting into vim.
 Plug 'vim-scripts/grep.vim'  " Plugin to integrate various grep like search tools with Vim.
 Plug 'mattn/jvgrep'  " jvgrep is grep for Japanese vimmer. You can find text from files that written in another Japanese encodings.
+Plug 'vlime/vlime', {'rtp': 'vim/'}  " Vlime is a Common Lisp dev environment for Vim (and Neovim), similar to SLIME for Emacs and SLIMV for Vim.
 call plug#end()
 
 " Basic
