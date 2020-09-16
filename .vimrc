@@ -69,6 +69,10 @@ function! Autopep8()
 endfunction
 autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
+" supertab
+let g:SuperTabContextDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " Tab
 nmap te :tabedit<Return>
 nmap tl :Unite tab<Return>
@@ -109,8 +113,8 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_marked_file_icon = '✓'
 
 " Ale
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <C-p> <Plug>(ale_previous_wrap)
+nmap <C-n> <Plug>(ale_next_wrap)
 
 let g:ale_python_flake8_args = '--ignore=E501'
 let g:ale_python_flake8_executable = 'flake8'
