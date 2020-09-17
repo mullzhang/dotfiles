@@ -11,6 +11,9 @@ eval (anyenv init - | source)
 # Flutter
 set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
 
+# Github CLI
+eval (gh completion -s fish| source)
+
 ##########
 # alias
 alias ls "ls -aG"
