@@ -46,7 +46,7 @@ alias jl 'jupyter lab'
 alias g 'cd (ghq root)/(ghq list | peco)'
 
 # hub
-alias gh 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
+alias gp 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
 
 ##########
 # tmux split window
