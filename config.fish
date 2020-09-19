@@ -14,6 +14,9 @@ set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
 # Github CLI
 eval (gh completion -s fish| source)
 
+# Conda
+source (conda info --root)/etc/fish/conf.d/conda.fish
+
 ##########
 # alias
 alias ls "ls -aG"
@@ -139,3 +142,4 @@ function acr
         open -a Google\ Chrome "https://www.allacronyms.com/$argv[1]/abbreviated"
     end
 end
+
