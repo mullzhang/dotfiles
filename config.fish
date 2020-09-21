@@ -17,6 +17,9 @@ eval (gh completion -s fish| source)
 # Conda
 source (conda info --root)/etc/fish/conf.d/conda.fish
 
+# OpenJDK
+set -g fish_user_paths "/usr/local/opt/openjdk/bin" $fish_user_paths
+
 ##########
 # alias
 alias ls "ls -aG"
@@ -30,7 +33,7 @@ alias mkdir "mkdir -p"
 alias ga 'git add'
 alias gd 'git diff'
 alias gs 'git status'
-alias gp 'git push'
+alias gps 'git push'
 alias gb 'git branch'
 alias gst 'git status'
 alias gco 'git checkout'
