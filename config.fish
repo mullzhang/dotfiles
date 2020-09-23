@@ -15,7 +15,7 @@ set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
 eval (gh completion -s fish| source)
 
 # Conda
-source (conda info --root)/etc/fish/conf.d/conda.fish
+# source (conda info --root)/etc/fish/conf.d/conda.fish
 
 # OpenJDK
 set -g fish_user_paths "/usr/local/opt/openjdk/bin" $fish_user_paths
