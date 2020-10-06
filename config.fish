@@ -103,7 +103,7 @@ end
 
 function fish_user_key_bindings
     bind \cr ph
-    bind \ce pz
+    bind \cs pz
 end
 
 # check how many processes is running iv ssh
