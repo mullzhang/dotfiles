@@ -19,6 +19,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'  " vim-bracketed-paste enables transparen
 Plug 'vim-scripts/grep.vim'  " Plugin to integrate various grep like search tools with Vim.
 Plug 'mattn/jvgrep'  " jvgrep is grep for Japanese vimmer. You can find text from files that written in another Japanese encodings.
 Plug 'vlime/vlime', {'rtp': 'vim/'}  " Vlime is a Common Lisp dev environment for Vim (and Neovim), similar to SLIME for Emacs and SLIMV for Vim.
+Plug 'justmao945/vim-clang'  " Use of clang to parse and complete C/C++ source files.
 call plug#end()
 
 " Basic
@@ -145,3 +146,7 @@ let Grep_Skip_Files = '*.bak *~'  " ignore the backup file
 if executable('jvgrep')
   set grepprg=jvgrep
 endif
+
+" set clang options for vim-clang
+let g:clang_c_options = '-std=c14'
+let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
