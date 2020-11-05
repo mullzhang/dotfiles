@@ -7,7 +7,6 @@ Plug 'Shougo/vimfiler.vim'  " Powerful file explorer implemented by Vim script
 Plug 'Shougo/vimproc.vim'  " Interactive command execution in Vim.
 Plug 'morhetz/gruvbox'  " Retro groove color scheme for Vim
 Plug 'dense-analysis/ale'  " Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
-Plug 'sheerun/vim-polyglot'  " A solid language pack for Vim.
 Plug 'tpope/vim-surround'  " surround.vim: quoting/parenthesizing made simple
 Plug 'tyru/open-browser.vim'  " Open URI with your favorite browser from your most favorite editor
 Plug 'tomtom/tcomment_vim'  " An extensible & universal comment vim-plugin that also handles embedded filetypes
