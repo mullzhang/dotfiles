@@ -19,6 +19,7 @@ Plug 'vim-scripts/grep.vim'  " Plugin to integrate various grep like search tool
 Plug 'mattn/jvgrep'  " jvgrep is grep for Japanese vimmer. You can find text from files that written in another Japanese encodings.
 Plug 'vlime/vlime', {'rtp': 'vim/'}  " Vlime is a Common Lisp dev environment for Vim (and Neovim), similar to SLIME for Emacs and SLIMV for Vim.
 Plug 'justmao945/vim-clang'  " Use of clang to parse and complete C/C++ source files.
+Plug 'tpope/vim-fugitive'  " Fugitive is the premier Vim plugin for Git.
 call plug#end()
 
 " Basic
