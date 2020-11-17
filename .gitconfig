@@ -2,7 +2,7 @@
 	email = mullzhang@users.noreply.github.com
 	name = Mull Zhang
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/dotfiles/.gitignore
 [push]
   default = simple
 [color]
