@@ -32,30 +32,11 @@ alias mv "mv -i"
 alias mkdir "mkdir -p"
 
 # git
-# alias g 'git'
-alias ga 'git add'
-alias gd 'git diff'
-alias gs 'git status'
-alias gps 'git push'
-alias gb 'git branch'
-alias gst 'git status'
-alias gco 'git checkout'
-alias gf 'git fetch'
-alias gpl 'git pull'
-alias gc 'git commit'
-alias gl 'git log'
+alias g git
 
-# jupyter notebook
+# jupyter notebook and lab
 alias jn 'jupyter notebook'
-
-# jupyter lab
 alias jl 'jupyter lab'
-
-# ghq
-alias g 'cd (ghq root)/(ghq list | peco)'
-
-# hub
-alias gp 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
 
 ##########
 # tmux split window
