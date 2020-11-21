@@ -8,9 +8,6 @@ set -x PATH "/usr/local/opt/ruby/bin" $PATH
 set -x PATH $HOME/.anyenv/bin $PATH
 eval (anyenv init - | source)
 
-# Flutter
-set -x PATH $HOME/dev/flutter_dev/flutter/bin $PATH
-
 # Github CLI
 eval (gh completion -s fish| source)
 
@@ -33,6 +30,9 @@ alias mkdir "mkdir -p"
 
 # git
 alias g git
+
+# ghq
+alias gcd 'cd (ghq root)/(ghq list | peco)'
 
 # jupyter notebook and lab
 alias jn 'jupyter notebook'
