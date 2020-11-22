@@ -1,6 +1,6 @@
 [user]
 	email = mullzhang@users.noreply.github.com
-	name = Mull Zhang
+	name = mullzhang
 [core]
 	excludesfile = ~/dotfiles/.gitignore
 [push]
