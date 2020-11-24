@@ -131,3 +131,5 @@ function acr
     end
 end
 
+# local config fish
+source ~/.config/fish/config.local.fish
