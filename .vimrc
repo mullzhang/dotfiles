@@ -35,6 +35,7 @@ set smartindent
 set wildmenu
 set wildmode=full
 set history=200
+set clipboard+=unnamed
 
 " Color scheme
 syntax enable
