@@ -10,6 +10,12 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 
+# poetry
+alias poetry=pt
+
+# dart
+alias dart=dt
+
 # git
 alias g=git
 
@@ -107,3 +113,7 @@ function peco-ghq-look () {
 
 zle -N peco-ghq-look
 bindkey '^G' peco-ghq-look
+
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/mull/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
