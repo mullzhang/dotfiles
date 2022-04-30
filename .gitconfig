@@ -3,6 +3,7 @@
 	name = mullzhang
 [core]
 	excludesFile = /Users/mull/.gitignore_global
+	editor = vim -c \"set fenc=utf-8\"
 [push]
   default = simple
 [color]
