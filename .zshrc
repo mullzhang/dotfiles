@@ -11,10 +11,10 @@ alias mv="mv -i"
 alias mkdir="mkdir -p"
 
 # poetry
-alias poetry=pt
+alias pt=poetry
 
 # dart
-alias dart=dt
+alias dt=dart
 
 # git
 alias g=git
