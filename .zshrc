@@ -42,6 +42,25 @@ function ide() {
   tmux select-pane -U
 }
 
+# rename session of tmux
+# Ref. https://daily.belltail.jp/?p=2518
+if [ ! -z $TMUX ]; then
+    tmux show-options | grep "TMUX_NO_FORCE_NAME_SESSION" > /dev/null
+    if [ $? -ne 0 ]; then
+        SESSION_NAME=`tmux display-message -p '#S'`
+        echo $SESSION_NAME | grep "^[0-9]\+$" > /dev/null
+        if [ $? -eq 0 ]; then   # Not named
+            /bin/echo -n "tmux session name: "
+            read NAME
+            if [ ! -z $NAME ]; then
+                tmux rename-session $NAME
+            else
+                tmux set-option update-environment TMUX_NO_FORCE_NAME_SESSION=1
+            fi
+        fi
+    fi
+fi
+
 # gitignore
 function gi() {
   curl -sL "https://www.gitignore.io/api/$1" > .gitignore
