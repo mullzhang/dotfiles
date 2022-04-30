@@ -25,8 +25,8 @@ alias g=git
 # ghq
 alias gcd='cd "$(ghq root)/$(ghq list | peco)"'
 
-# jupyterlab
-alias jl="jupyter lab"
+# python
+alias py=python
 
 # anyenv
 eval "$(anyenv init -)"
