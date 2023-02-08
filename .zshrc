@@ -34,6 +34,9 @@ eval "$(anyenv init -)"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# coreutils (including tac command etc)
+export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
+
 # Functions
 # tmux
 function ide() {
@@ -71,7 +74,7 @@ function acr() {
   open -a Google\ Chrome "https://www.allacronyms.com/$1/abbreviated"
 }
 
-# Goole search
+# Google search
 # ref: https://osa.hatenablog.jp/entry/2020/02/24/121725
 function google() {
   local str opt
@@ -120,22 +123,13 @@ zle -N peco-cdr
 bindkey '^S' peco-cdr
 
 # ghq with peco
-function peco-ghq-look () {
-    local ghq_roots="$(git config --path --get-all ghq.root)"
-    local selected_dir=$(ghq list --full-path | \
-        xargs -I{} ls -dl --time-style=+%s {}/.git | sed 's/.*\([0-9]\{10\}\)/\1/' | sort -nr | \
-        sed "s,.*\(${ghq_roots/$'\n'/\|}\)/,," | \
-        sed 's/\/.git//' | \
-        peco --prompt="cd-ghq >" --query "$LBUFFER")
+function peco-ghq-look() {
+    local selected_dir="$(ghq root)/$(ghq list | peco)"
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd $(ghq list --full-path | grep --color=never -E "/$selected_dir$")"
+        BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
 }
 
 zle -N peco-ghq-look
 bindkey '^G' peco-ghq-look
-
-
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/mull/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
