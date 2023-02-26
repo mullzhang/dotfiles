@@ -6,6 +6,12 @@ fi
 # local file
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+# zsh plugins
+if [[ $(uname) =~ ^Darwin* ]]; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 # Alias
 alias ls="ls -aG"
 alias rm="rm -i"
@@ -21,9 +27,6 @@ alias dt=dart
 
 # git
 alias g=git
-
-# ghq
-alias gcd='cd "$(ghq root)/$(ghq list | peco)"'
 
 # python
 alias py=python
@@ -90,6 +93,8 @@ function google() {
 
 # useful functions with peco
 # ref: https://qiita.com/reireias/items/fd96d67ccf1fdffb24ed
+bindkey -e
+
 # history with peco
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
@@ -111,14 +116,13 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
 fi
 
 # cdr with peco
-function peco-cdr () {
-    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
+function peco-cdr() {
+    local selected_dir="$(cdr -l | sed 's/^[[:digit:]]*[[:blank:]]*//' | peco --prompt="cdr >" --query "$LBUFFER")"
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
 }
-
 zle -N peco-cdr
 bindkey '^S' peco-cdr
 
