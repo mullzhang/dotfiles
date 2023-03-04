@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
-Plug 'davidhalter/jedi-vim'  " Using the jedi autocompletion library for VIM.
+" Vim
 Plug 'ervandew/supertab'  " Perform all your vim insert mode completions with Tab
-Plug 'tell-k/vim-autopep8'  " autopep8 plugin for Vim
 Plug 'Shougo/unite.vim'  " Unite and create user interfaces
 Plug 'Shougo/vimfiler.vim'  " Powerful file explorer implemented by Vim script
 Plug 'Shougo/vimproc.vim'  " Interactive command execution in Vim.
@@ -11,13 +10,18 @@ Plug 'tpope/vim-surround'  " surround.vim: quoting/parenthesizing made simple
 Plug 'tyru/open-browser.vim'  " Open URI with your favorite browser from your most favorite editor
 Plug 'tomtom/tcomment_vim'  " An extensible & universal comment vim-plugin that also handles embedded filetypes
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Distraction-free writing in Vim
-Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
-Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with thin vertical lines
-Plug 'integralist/vim-mypy'  " Vim plugin for executing Python's optional static type checker MyPy
 Plug 'ConradIrwin/vim-bracketed-paste'  " vim-bracketed-paste enables transparent pasting into vim.
 Plug 'vim-scripts/grep.vim'  " Plugin to integrate various grep like search tools with Vim.
 Plug 'mattn/jvgrep'  " jvgrep is grep for Japanese vimmer. You can find text from files that written in another Japanese encodings.
 Plug 'vlime/vlime', {'rtp': 'vim/'}  " Vlime is a Common Lisp dev environment for Vim (and Neovim), similar to SLIME for Emacs and SLIMV for Vim.
+" Python
+Plug 'davidhalter/jedi-vim'  " Using the jedi autocompletion library for VIM.
+Plug 'psf/black', { 'branch': 'stable' }  " The uncompromising Python code formatter
+Plug 'brentyi/isort.vim'  " Async isort plugin for Vim + Neovim
+Plug 'vim-syntastic/syntastic'  " Syntax checking hacks for vim
+Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
+Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with thin vertical lines
+" Others
 Plug 'justmao945/vim-clang'  " Use of clang to parse and complete C/C++ source files.
 Plug 'tpope/vim-fugitive'  " Fugitive is the premier Vim plugin for Git.
 Plug 'rust-lang/rust.vim'  " Rust file detection, syntax highlighting, formatting, Syntastic integration, and more.
@@ -45,32 +49,11 @@ set background=dark
 " Python execution
 nmap <C-S-f> :!python %<Return>
 
-" Autopep8
-" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
-function! Preserve(command) 
-    " Save the last search.
-    let search = @/
-    " Save the current cursor position.
-    let cursor_position = getpos('.')
-    " Save the current window position.
-    normal! H
-    let window_position = getpos('.')
-    call setpos('.', cursor_position)
-    " Execute the command.
-    execute a:command
-    " Restore the last search.
-    let @/ = search
-    " Restore the previous window position.
-    call setpos('.', window_position)
-    normal! zt
-    " Restore the previous cursor position.
-    call setpos('.', cursor_position)
-endfunction
+" Black
+nnoremap <S-f> :Black<CR>
 
-function! Autopep8()
-    call Preserve(':silent %!autopep8 --ignore=E501 -')
-endfunction
-autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
+" Syntastic
+let g:syntastic_python_checkers = ['flake8', 'mypy']
 
 " supertab
 let g:SuperTabContextDefaultCompletionType = "context"
