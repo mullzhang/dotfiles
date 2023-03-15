@@ -25,6 +25,7 @@ Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with 
 Plug 'justmao945/vim-clang'  " Use of clang to parse and complete C/C++ source files.
 Plug 'tpope/vim-fugitive'  " Fugitive is the premier Vim plugin for Git.
 Plug 'rust-lang/rust.vim'  " Rust file detection, syntax highlighting, formatting, Syntastic integration, and more.
+Plug 'github/copilot.vim'  " Neovim plugin for GitHub Copilot
 call plug#end()
 
 " Basic
