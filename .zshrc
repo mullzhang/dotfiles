@@ -40,6 +40,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # coreutils (including tac command etc)
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 
+# alfred
+# package manager
+export PATH="/opt/homebrew/opt/php/bin:$PATH"
+export PATH="/opt/homebrew/opt/php/sbin:$PATH"
+
 # Functions
 # tmux
 function ide() {
