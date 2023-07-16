@@ -28,6 +28,18 @@ alias dt=dart
 # git
 alias g=git
 
+# Docker
+# Ref. https://qiita.com/kulikala/items/f736629497a974ca82cb
+alias d='docker'
+alias dc='docker-compose'
+alias dcnt='docker container'
+alias dcur='docker container ls -f status=running -l -q'
+alias dexec='docker container exec -it $(dcur)'
+alias dimg='docker image'
+alias drun='docker container run --rm -d'
+alias drunit='docker container run --rm -it'
+alias dstop='docker container stop $(dcur)'
+
 # python
 alias py=python
 
@@ -44,6 +56,9 @@ export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 # package manager
 export PATH="/opt/homebrew/opt/php/bin:$PATH"
 export PATH="/opt/homebrew/opt/php/sbin:$PATH"
+
+# llvm
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # Functions
 # tmux
@@ -128,6 +143,7 @@ function peco-cdr() {
         zle accept-line
     fi
 }
+
 zle -N peco-cdr
 bindkey '^S' peco-cdr
 
@@ -142,3 +158,16 @@ function peco-ghq-look() {
 
 zle -N peco-ghq-look
 bindkey '^G' peco-ghq-look
+
+# bdr with peco
+function peco-bdr() {
+    local dir
+    dir=$(echo ${PWD#$HOME} | awk 'BEGIN{FS=OFS="/"} {for (i=NF; i>1; i--) print substr($0, 1, index($0,$i) + length($i) - 1)}' | peco --prompt "bdr >")
+    if [ -n "$dir" ]; then
+        BUFFER="cd ${HOME}${dir}"
+        zle accept-line
+    fi
+}
+
+zle -N peco-bdr
+bindkey '^B' peco-bdr
