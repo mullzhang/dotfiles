@@ -28,8 +28,8 @@ alias dt=dart
 # git
 alias g=git
 
-# hub
-alias gh=peco-hub
+# github cli
+eval "$(gh completion -s zsh)"
 
 # Docker
 # Ref. https://qiita.com/kulikala/items/f736629497a974ca82cb
@@ -150,6 +150,19 @@ function peco-cdr() {
 zle -N peco-cdr
 bindkey '^S' peco-cdr
 
+# bdr with peco
+function peco-bdr() {
+    local dir
+    dir=$(echo ${PWD#$HOME} | awk 'BEGIN{FS=OFS="/"} {for (i=NF; i>1; i--) print substr($0, 1, index($0,$i) + length($i) - 1)}' | peco --prompt "bdr >")
+    if [ -n "$dir" ]; then
+        BUFFER="cd ${HOME}${dir}"
+        zle accept-line
+    fi
+}
+
+zle -N peco-bdr
+bindkey '^B' peco-bdr
+
 # ghq with peco
 function peco-ghq-look() {
     local selected_dir="$(ghq root)/$(ghq list | peco --prompt 'ghq >')"
@@ -174,15 +187,9 @@ function peco-hub() {
 zle -N peco-hub
 bindkey '^V' peco-hub
 
-# bdr with peco
-function peco-bdr() {
-    local dir
-    dir=$(echo ${PWD#$HOME} | awk 'BEGIN{FS=OFS="/"} {for (i=NF; i>1; i--) print substr($0, 1, index($0,$i) + length($i) - 1)}' | peco --prompt "bdr >")
-    if [ -n "$dir" ]; then
-        BUFFER="cd ${HOME}${dir}"
-        zle accept-line
-    fi
+# ghcr
+function ghcr() {
+    gh repo create $1 --private
+    ghq get git@github.com:mullzhang/$1.git
+    code ~/ghq/github.com/mullzhang/$1
 }
-
-zle -N peco-bdr
-bindkey '^B' peco-bdr
