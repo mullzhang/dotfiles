@@ -68,6 +68,7 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 function ide() {
   tmux split-window -v -p 30
   tmux split-window -h -p 50
+  tmux select-pane -L
   tmux select-pane -U
 }
 
