@@ -28,6 +28,9 @@ alias dt=dart
 # git
 alias g=git
 
+# hub
+alias gh=peco-hub
+
 # Docker
 # Ref. https://qiita.com/kulikala/items/f736629497a974ca82cb
 alias d='docker'
@@ -149,7 +152,7 @@ bindkey '^S' peco-cdr
 
 # ghq with peco
 function peco-ghq-look() {
-    local selected_dir="$(ghq root)/$(ghq list | peco)"
+    local selected_dir="$(ghq root)/$(ghq list | peco --prompt 'ghq >')"
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
@@ -158,6 +161,18 @@ function peco-ghq-look() {
 
 zle -N peco-ghq-look
 bindkey '^G' peco-ghq-look
+
+# hub with peco
+function peco-hub() {
+    local selected_dir="$(ghq list | peco --prompt 'hub >' | cut -d '/' -f 2,3)"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="hub browse ${selected_dir}"
+        zle accept-line
+    fi
+}
+
+zle -N peco-hub
+bindkey '^V' peco-hub
 
 # bdr with peco
 function peco-bdr() {
