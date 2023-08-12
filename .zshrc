@@ -186,7 +186,19 @@ function peco-hub() {
 }
 
 zle -N peco-hub
-bindkey '^V' peco-hub
+bindkey '^Z' peco-hub
+
+# vscode with peco
+function peco-code() {
+    local selected_dir="$(cdr -l | sed 's/^[[:digit:]]*[[:blank:]]*//' | peco --prompt="code >" --query "$LBUFFER")"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="code ${selected_dir}"
+        zle accept-line
+    fi
+}
+
+zle -N peco-code
+bindkey '^V' peco-code
 
 # ghcr
 function ghcr() {
