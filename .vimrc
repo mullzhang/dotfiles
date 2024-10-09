@@ -16,7 +16,6 @@ Plug 'mattn/jvgrep'  " jvgrep is grep for Japanese vimmer. You can find text fro
 Plug 'vlime/vlime', {'rtp': 'vim/'}  " Vlime is a Common Lisp dev environment for Vim (and Neovim), similar to SLIME for Emacs and SLIMV for Vim.
 " Python
 Plug 'davidhalter/jedi-vim'  " Using the jedi autocompletion library for VIM.
-Plug 'psf/black', { 'branch': 'stable' }  " The uncompromising Python code formatter
 Plug 'brentyi/isort.vim'  " Async isort plugin for Vim + Neovim
 Plug 'vim-syntastic/syntastic'  " Syntax checking hacks for vim
 Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
@@ -24,14 +23,12 @@ Plug 'Yggdroot/indentLine'  " A vim plugin to display the indention levels with 
 "Svelte
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " Others
 Plug 'justmao945/vim-clang'  " Use of clang to parse and complete C/C++ source files.
 Plug 'tpope/vim-fugitive'  " Fugitive is the premier Vim plugin for Git.
 Plug 'rust-lang/rust.vim'  " Rust file detection, syntax highlighting, formatting, Syntastic integration, and more.
 Plug 'github/copilot.vim'  " Neovim plugin for GitHub Copilot
 Plug 'godlygeek/tabular'  " Markdown Vim Mode
-Plug 'preservim/vim-markdown'  " Markdown Vim Mode
 call plug#end()
 
 " Basic
