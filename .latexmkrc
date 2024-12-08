@@ -62,7 +62,9 @@ if ($^O eq 'MSWin32') {
     $pvc_view_file_via_temporary = 0;
     # PDF ビュアーの設定 for macOS
     # macOS では SyncTeX が利用できる Skim が推奨されている。
-    $pdf_previewer               = 'open -ga /Applications/Skim.app';
+    # $pdf_previewer               = 'open -ga /Applications/Skim.app';
+    # ビルド時に毎回Skimが立ち上がってしまうため、Previewを設定する
+    $pdf_previewer               = 'open -ga /Applications/Preview.app';
   } else {
     # PDF ビュアーの設定 for Linux
     # Linux ではディストリビューションによってインストールされているアプリケーションが
