@@ -6,12 +6,6 @@ fi
 # local file
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-# zsh plugins
-if [[ $(uname) =~ ^Darwin* ]]; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 # Alias
 alias ls="ls -aG"
 alias rm="rm -i"
