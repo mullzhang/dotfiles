@@ -39,6 +39,7 @@ alias dstop='docker container stop $(dcur)'
 
 # python
 alias py=python
+alias ipy=ipython
 
 # anyenv
 eval "$(anyenv init -)"
