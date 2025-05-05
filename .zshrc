@@ -41,9 +41,6 @@ alias dstop='docker container stop $(dcur)'
 alias py=python
 alias ipy=ipython
 
-# anyenv
-eval "$(anyenv init -)"
-
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
