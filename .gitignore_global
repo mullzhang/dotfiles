@@ -15,7 +15,6 @@ TAGS
 *.aux
 *.elc
 .zshrc.local
-.python-version
 samples
 .netrwhist
 .bundle

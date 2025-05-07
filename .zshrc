@@ -44,9 +44,6 @@ alias ipy=ipython
 # terraform
 alias tf=terraform
 
-# anyenv
-eval "$(anyenv init -)"
-
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
