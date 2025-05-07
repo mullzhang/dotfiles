@@ -41,6 +41,9 @@ alias dstop='docker container stop $(dcur)'
 alias py=python
 alias ipy=ipython
 
+# terraform
+alias tf=terraform
+
 # anyenv
 eval "$(anyenv init -)"
 
@@ -201,3 +204,4 @@ function ghcr() {
     ghq get git@github.com:mullzhang/$1.git
     code ~/ghq/github.com/mullzhang/$1
 }
+
