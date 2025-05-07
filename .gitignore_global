@@ -58,3 +58,7 @@ DerivedData
 
 # Karabiner
 .config/karabiner/automatic_backups
+
+# local memo
+*.local.md
+*.local.toml
