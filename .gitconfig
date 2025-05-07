@@ -1,9 +1,8 @@
 [user]
-	email = mullzhang@users.noreply.github.com
-	name = mullzhang
+  email = mullzhang@users.noreply.github.com
+  name = mullzhang
 [core]
-	excludesFile = /Users/mull/.gitignore_global
-	editor = vim -c \"set fenc=utf-8\"
+  editor = vim -c \"set fenc=utf-8\"
 [push]
   default = simple
 [color]
@@ -41,19 +40,19 @@
 [hub]
   protocol = https
 [github]
-	user = mullzhang
+  user = mullzhang
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 [ghq]
   root = ~/ghq
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
