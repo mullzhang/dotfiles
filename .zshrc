@@ -71,6 +71,9 @@ function ideh() {
   tmux split-window -h -l 50%
   tmux split-window -v -l 66%
   tmux split-window -v -l 50%
+  tmux select-pane -U
+  tmux select-pane -U
+  tmux select-pane -L
 }
 
 # rename session of tmux
