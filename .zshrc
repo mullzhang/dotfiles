@@ -67,6 +67,12 @@ function ide() {
   tmux select-pane -U
 }
 
+function ideh() {
+  tmux split-window -h -l 50%
+  tmux split-window -v -l 66%
+  tmux split-window -v -l 50%
+}
+
 # rename session of tmux
 # Ref. https://daily.belltail.jp/?p=2518
 if [ ! -z $TMUX ]; then
