@@ -13,12 +13,6 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 
-# poetry
-alias pt=poetry
-
-# dart
-alias dt=dart
-
 # git
 alias g=git
 
