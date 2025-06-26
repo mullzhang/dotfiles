@@ -61,3 +61,5 @@ DerivedData
 # local memo
 *.local.md
 *.local.toml
+
+**/.claude/settings.local.json
