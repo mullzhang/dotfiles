@@ -118,6 +118,8 @@ function google() {
 bindkey -e
 
 # history with peco
+# tac: https://formulae.brew.sh/formula/coreutils
+# peco: https://formulae.brew.sh/formula/peco
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
