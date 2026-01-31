@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'  " Fugitive is the premier Vim plugin for Git.
 Plug 'rust-lang/rust.vim'  " Rust file detection, syntax highlighting, formatting, Syntastic integration, and more.
 Plug 'github/copilot.vim'  " Neovim plugin for GitHub Copilot
 Plug 'godlygeek/tabular'  " Markdown Vim Mode
+Plug 'editorconfig/editorconfig-vim'  " EditorConfig Vim Plugin
 call plug#end()
 
 " Basic
