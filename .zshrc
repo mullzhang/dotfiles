@@ -63,7 +63,7 @@ function ide() {
 
 function ideh() {
   tmux split-window -h -l 50%
-  tmux split-window -v -l 30%
+  tmux split-window -v -l 40%
   tmux select-pane -U
   tmux select-pane -L
 }
@@ -204,4 +204,9 @@ function ghcr() {
     ghq get git@github.com:mullzhang/$1.git
     code ~/ghq/github.com/mullzhang/$1
 }
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mull/.lmstudio/bin"
+# End of LM Studio CLI section
 

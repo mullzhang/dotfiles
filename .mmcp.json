@@ -1,0 +1,29 @@
+{
+  "mode": "merge",
+  "agents": [
+    "claude-code",
+    "codex-cli",
+    "gemini-cli",
+    "github-copilot-cli"
+  ],
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--config",
+        "/Users/mull/.playwright-config.json"
+      ],
+      "env": {}
+    },
+    "markitdown": {
+      "command": "uvx",
+      "args": [
+        "--python",
+        "3.13",
+        "markitdown-mcp"
+      ],
+      "env": {}
+    }
+  }
+}
