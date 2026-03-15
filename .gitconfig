@@ -3,6 +3,8 @@
   name = mullzhang
 [core]
   editor = vim -c \"set fenc=utf-8\"
+  precomposeunicode = true
+  quotepath = false
 [push]
   default = simple
 [color]
