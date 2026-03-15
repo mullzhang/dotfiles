@@ -1,0 +1,42 @@
+[tools]
+node = "latest"
+python = "latest"
+
+[tasks.op-json]
+description = "Impoort JSON file into 1password"
+run = "bash ~/scripts/import_json_to_1password.sh"
+
+[tasks.osrm-bg]
+description = "Run OSRM container in background"
+run = """
+cd ~/ghq/localhost/scripts/osrm
+make background
+"""
+
+[tasks.loglevel-stats]
+description = "Get log level stats from log files"
+run = "bash ~/ghq/localhost/scripts/log_level_stats.sh"
+
+[tasks.ccn]
+description = "Output complexity CSV rows filtered by threshold argument"
+quiet = true
+run = """
+#!/bin/bash
+set -euo pipefail
+
+run_ccn() {
+  threshold="${1:-${CCN_THRESHOLD:-15}}"
+  if [ "${1:-}" = "--" ]; then
+    threshold="${2:-${CCN_THRESHOLD:-15}}"
+  fi
+
+  if ! printf '%s' "$threshold" | grep -Eq '^[0-9]+$'; then
+    echo "CCN threshold must be an integer: '$threshold'" >&2
+    exit 2
+  fi
+
+  printf 'nloc,ccn,token_count,parameter_count,length,location,file,function,long_name,start_line,end_line\\n'
+  uv run lizard -l python --csv | awk -F, -v th="$threshold" '$2+0 >= th'
+}
+run_ccn "$@"
+"""

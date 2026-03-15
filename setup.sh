@@ -13,3 +13,4 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.gitignore_global ~/.config/git/ignore
 ln -sf ~/dotfiles/.mmcp.json ~/.mmcp.json
+ln -sf ~/dotfiles/mise_config.toml ~/.config/mise/config.toml
