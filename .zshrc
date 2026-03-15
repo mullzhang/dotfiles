@@ -89,7 +89,7 @@ fi
 
 # gitignore
 function gi() {
-  curl -sL "https://www.gitignore.io/api/$1" > .gitignore
+  curl -sL "https://www.gitignore.io/api/$1" >| .gitignore
 }
 
 # AllAcronyms search
@@ -118,14 +118,14 @@ bindkey -e
 # history with peco
 # tac: https://formulae.brew.sh/formula/coreutils
 # peco: https://formulae.brew.sh/formula/peco
-function peco-history-selection() {
+function peco-history() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
 
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+zle -N peco-history
+bindkey '^R' peco-history
 
 # cdr
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
@@ -163,16 +163,19 @@ zle -N peco-bdr
 bindkey '^B' peco-bdr
 
 # ghq with peco
-function peco-ghq-look() {
-    local selected_dir="$(ghq root)/$(ghq list | peco --prompt 'ghq >')"
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
+# Ref. https://www.mizdra.net/entry/2025/11/29/235449
+function peco-ghq() {
+  local ghq_root="$(ghq root)"
+  local selected_dir=$(find $ghq_root -mindepth 3 -maxdepth 3 -type d | sed "s|$ghq_root/||" | peco --query "$LBUFFER")
+  if [[ -n "$selected_dir" ]]; then
+    BUFFER="cd $ghq_root/$selected_dir"
+    zle accept-line
+  fi
+  zle redisplay
 }
 
-zle -N peco-ghq-look
-bindkey '^G' peco-ghq-look
+zle -N peco-ghq
+bindkey '^G' peco-ghq
 
 # hub with peco
 function peco-hub() {
@@ -198,15 +201,49 @@ function peco-code() {
 zle -N peco-code
 bindkey '^V' peco-code
 
+# mise with peco
+# Ref. https://zenn.dev/rakuten_tech/articles/mise-peco-task-runner-workflow
+peco-mise () {
+  local selected
+  selected=$(mise tasks 2>/dev/null | peco --prompt "mise task>" --initial-filter Fuzzy)
+  if [[ -n "$selected" ]]; then
+    local task_name
+    task_name=$(echo "$selected" | awk '{print $1}')
+    mise tasks "$task_name"
+    print -z "mise run ${task_name}"
+  fi
+}
+
+zle -N peco-mise
+bindkey '^T' peco-mise
+
 # ghcr
 function ghcr() {
     gh repo create $1 --private
     ghq get git@github.com:mullzhang/$1.git
-    code ~/ghq/github.com/mullzhang/$1
+    cd ~/ghq/github.com/mullzhang/$1
 }
 
+# agent-safehouse
+SAFEHOUSE_APPEND_PROFILE="$HOME/.config/agent-safehouse/local-overrides.sb"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/mull/.lmstudio/bin"
-# End of LM Studio CLI section
+safe() {
+  local wt git_dir common_dir args=()
+  wt="$(git rev-parse --show-toplevel 2>/dev/null || pwd -P)"
+  git_dir="$(git rev-parse --path-format=absolute --git-dir 2>/dev/null || true)"
+  common_dir="$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null || true)"
 
+  args+=(--workdir="$wt")
+
+  if [[ -n "$git_dir" && "$git_dir" != "$wt/.git" ]]; then
+    args+=(--add-dirs="$git_dir")
+  fi
+  if [[ -n "$common_dir" && "$common_dir" != "$git_dir" ]]; then
+    args+=(--add-dirs="$common_dir")
+  fi
+
+  safehouse \
+    "${args[@]}" \
+    --append-profile="$SAFEHOUSE_APPEND_PROFILE" \
+    -- "$@"
+}
