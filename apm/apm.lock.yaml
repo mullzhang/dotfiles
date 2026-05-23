@@ -1,0 +1,14 @@
+lockfile_version: '1'
+generated_at: '2026-05-23T06:43:31.899395+00:00'
+apm_version: 0.13.0
+dependencies:
+- repo_url: little-hands/claude-drawio-skill
+  host: github.com
+  resolved_commit: 23b638710f92578deb49bca2a94940fe6492f328
+  virtual_path: plugins/draw-io/skills/draw-io
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/draw-io
+  - .claude/skills/draw-io
+  content_hash: sha256:371750e82b8f816c5a4166c224ece2f512df9a755fbe55e1168b433da72ed0c9

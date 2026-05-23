@@ -3,6 +3,7 @@ version: 1.0.0
 description: Shared APM defaults for dotfiles
 author: mullzhang
 dependencies:
-  apm: []
+  apm:
+  - little-hands/claude-drawio-skill/plugins/draw-io/skills/draw-io
   mcp: []
 scripts: {}

@@ -6,3 +6,7 @@ local/*
 !local/.gitkeep
 mise.local.toml
 mise.*.local.toml
+
+
+# APM dependencies
+apm_modules/
