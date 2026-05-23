@@ -20,6 +20,31 @@ scripts/import_json_to_1password.sh
 scripts/osrm/Makefile             # support file used by OSRM tasks
 ```
 
+Homebrew is managed as an environment snapshot in `homebrew/Brewfile`:
+
+```text
+homebrew/Brewfile
+```
+
+The file is generated from the current machine with `brew bundle dump`, so it
+may include transitive formulae and packages installed by Homebrew integrations
+such as Mac App Store apps, VS Code extensions, Cargo packages, and npm
+packages. Treat it as a practical snapshot, not a curated direct-dependency
+list.
+
+Apply or update the snapshot through mise:
+
+```sh
+mise run brew-apply
+mise run brew-check
+mise run brew-dump
+mise run brew-cleanup
+```
+
+`brew-apply` and `brew-check` use `--no-upgrade`, so outdated packages do not
+make the snapshot fail. Use normal Homebrew upgrade commands when you want to
+update installed packages.
+
 ## Local files
 
 Machine-specific overrides live under `local/`, which is ignored by git.
