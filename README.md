@@ -39,6 +39,26 @@ Minimal render example:
 marp --theme marp/themes/marp-metropolis.css marp/examples/minimal.md
 ```
 
+Matplotlib styles live under `matplotlib/stylelib/`:
+
+```text
+matplotlib/stylelib/my_setting.mplstyle
+matplotlib/examples/minimal_style.py
+```
+
+`setup.sh` links this file to `~/.matplotlib/stylelib/my_setting.mplstyle` on
+macOS. Use it in Python as:
+
+```python
+plt.style.use("my_setting")
+```
+
+The sample script can also be run directly from this repository:
+
+```sh
+python matplotlib/examples/minimal_style.py
+```
+
 Homebrew is managed as an environment snapshot in `homebrew/Brewfile`:
 
 ```text

@@ -4,6 +4,7 @@ scripts/osrm/.data/
 # Local configuration files
 local/*
 !local/.gitkeep
+matplotlib/examples/*.png
 mise.local.toml
 mise.*.local.toml
 

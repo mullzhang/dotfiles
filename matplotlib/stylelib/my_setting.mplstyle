@@ -1,0 +1,9 @@
+axes.labelsize: 20
+legend.framealpha: 0.0
+legend.fontsize: 14
+mathtext.fontset: stix
+xtick.labelsize: 14
+ytick.labelsize: 14
+savefig.bbox: tight
+savefig.pad_inches: 0.05
+

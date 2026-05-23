@@ -7,7 +7,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 touch ~/.tmux/.tmux.local.conf
 
 # symbolic links
-mkdir -p ~/.apm ~/.config/git ~/.config/mise ~/.config/mise/conf.d
+mkdir -p ~/.apm ~/.config/git ~/.config/mise ~/.config/mise/conf.d ~/.matplotlib/stylelib
 mkdir -p ~/dotfiles/local ~/dotfiles/local/apm
 
 if [ ! -f ~/dotfiles/local/zshrc ]; then
@@ -75,6 +75,7 @@ ln -sf ~/dotfiles/.gitignore_global ~/.config/git/ignore
 ln -sf ~/dotfiles/.mmcp.json ~/.mmcp.json
 ln -sf ~/dotfiles/mise_config.toml ~/.config/mise/config.toml
 ln -sf ~/dotfiles/local/mise.toml ~/.config/mise/conf.d/local.toml
+ln -sf ~/dotfiles/matplotlib/stylelib/my_setting.mplstyle ~/.matplotlib/stylelib/my_setting.mplstyle
 
 for file in apm.yml config.json marketplaces.json; do
   if [ -f "$HOME/dotfiles/local/apm/$file" ]; then
