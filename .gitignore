@@ -2,6 +2,7 @@
 scripts/osrm/.data/
 
 # Local configuration files
-local/
+local/*
+!local/.gitkeep
 mise.local.toml
 mise.*.local.toml
