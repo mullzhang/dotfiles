@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-05-23T06:43:31.899395+00:00'
+generated_at: '2026-05-23T06:58:38.144039+00:00'
 apm_version: 0.13.0
 dependencies:
 - repo_url: little-hands/claude-drawio-skill
@@ -10,5 +10,13 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .agents/skills/draw-io
-  - .claude/skills/draw-io
   content_hash: sha256:371750e82b8f816c5a4166c224ece2f512df9a755fbe55e1168b433da72ed0c9
+- repo_url: microsoft/playwright-cli
+  host: github.com
+  resolved_commit: 3a1bafc8b4e973c72d0364eb5b427d1ce0aa8317
+  virtual_path: skills/playwright-cli
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/playwright-cli
+  content_hash: sha256:a6045d16fe8fabaeb11574b103be0b2547358ccbbe8820a7ce00004d69bbc45f
