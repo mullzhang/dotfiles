@@ -20,3 +20,15 @@ dependencies:
   deployed_files:
   - .agents/skills/playwright-cli
   content_hash: sha256:a6045d16fe8fabaeb11574b103be0b2547358ccbbe8820a7ce00004d69bbc45f
+- repo_url: mullzhang/skills
+  host: github.com
+  resolved_commit: 792f041c076ccde47c31c9517ce616296ff5ee42
+  package_type: marketplace_plugin
+  deployed_files:
+  - .agents/skills/file-organizer
+  - .agents/skills/github-issue-dupe-check
+  - .agents/skills/lean-code
+  - .agents/skills/pulp-log-diagnostics
+  - .agents/skills/sdv-synthetic-data
+  - .agents/skills/test-only-dead-code-detector
+  content_hash: sha256:022d0cae4f4767aa9a3801468f5803281a8501f0da536031f7b25f684542bf74

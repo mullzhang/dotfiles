@@ -6,5 +6,6 @@ dependencies:
   apm:
   - little-hands/claude-drawio-skill/plugins/draw-io/skills/draw-io
   - microsoft/playwright-cli/skills/playwright-cli
+  - mullzhang/skills
   mcp: []
 scripts: {}
