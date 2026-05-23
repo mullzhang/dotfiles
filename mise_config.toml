@@ -65,8 +65,8 @@ description = "Check whether Homebrew snapshot is satisfied"
 run = "brew bundle check --no-upgrade --file ~/dotfiles/homebrew/Brewfile"
 
 [tasks.brew-dump]
-description = "Update homebrew/Brewfile from the current Homebrew environment"
-run = "brew bundle dump --file ~/dotfiles/homebrew/Brewfile --force"
+description = "Update homebrew/Brewfile with Homebrew formulae and casks only"
+run = "brew bundle dump --formula --cask --file ~/dotfiles/homebrew/Brewfile --force"
 
 [tasks.brew-cleanup]
 description = "Show Homebrew packages not in homebrew/Brewfile"

@@ -65,11 +65,10 @@ Homebrew is managed as an environment snapshot in `homebrew/Brewfile`:
 homebrew/Brewfile
 ```
 
-The file is generated from the current machine with `brew bundle dump`, so it
-may include transitive formulae and packages installed by Homebrew integrations
-such as Mac App Store apps, VS Code extensions, Cargo packages, and npm
-packages. Treat it as a practical snapshot, not a curated direct-dependency
-list.
+The file is generated from the current machine with `brew bundle dump --formula
+--cask`, so it includes Homebrew formulae and casks only. Manage Mac App Store
+apps, VS Code extensions, Cargo packages, and npm packages outside this
+Brewfile.
 
 Apply or update the snapshot through mise:
 
