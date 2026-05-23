@@ -7,8 +7,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 touch ~/.tmux/.tmux.local.conf
 
 # symbolic links
-mkdir -p ~/.config/git ~/.config/mise ~/.config/mise/conf.d
-mkdir -p ~/dotfiles/local
+mkdir -p ~/.apm ~/.config/git ~/.config/mise ~/.config/mise/conf.d
+mkdir -p ~/dotfiles/local ~/dotfiles/local/apm
 
 if [ ! -f ~/dotfiles/local/zshrc ]; then
   printf '%s\n' \
@@ -75,3 +75,17 @@ ln -sf ~/dotfiles/.gitignore_global ~/.config/git/ignore
 ln -sf ~/dotfiles/.mmcp.json ~/.mmcp.json
 ln -sf ~/dotfiles/mise_config.toml ~/.config/mise/config.toml
 ln -sf ~/dotfiles/local/mise.toml ~/.config/mise/conf.d/local.toml
+
+for file in apm.yml config.json marketplaces.json; do
+  if [ -f "$HOME/dotfiles/local/apm/$file" ]; then
+    ln -sf "$HOME/dotfiles/local/apm/$file" "$HOME/.apm/$file"
+  else
+    ln -sf "$HOME/dotfiles/apm/$file" "$HOME/.apm/$file"
+  fi
+done
+
+if [ -f "$HOME/dotfiles/local/apm/apm.lock.yaml" ]; then
+  ln -sf "$HOME/dotfiles/local/apm/apm.lock.yaml" "$HOME/.apm/apm.lock.yaml"
+elif [ -f "$HOME/dotfiles/apm/apm.lock.yaml" ]; then
+  ln -sf "$HOME/dotfiles/apm/apm.lock.yaml" "$HOME/.apm/apm.lock.yaml"
+fi

@@ -51,6 +51,26 @@ description = "Aggregate Plotly HTML files into a single HTML file"
 run = "python ~/dotfiles/scripts/plotly_aggregator.py"
 raw_args = true
 
+[tasks.apm-install-local]
+description = "Install an APM dependency into local APM config"
+run = "bash ~/dotfiles/scripts/apm_install.sh local install"
+raw_args = true
+
+[tasks.apm-install-shared]
+description = "Install an APM dependency into shared APM config"
+run = "bash ~/dotfiles/scripts/apm_install.sh shared install"
+raw_args = true
+
+[tasks.apm-uninstall-local]
+description = "Uninstall an APM dependency from local APM config"
+run = "bash ~/dotfiles/scripts/apm_install.sh local uninstall"
+raw_args = true
+
+[tasks.apm-uninstall-shared]
+description = "Uninstall an APM dependency from shared APM config"
+run = "bash ~/dotfiles/scripts/apm_install.sh shared uninstall"
+raw_args = true
+
 [tasks.route-files]
 description = "Route any files to project folders based on config"
 run = """

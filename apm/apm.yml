@@ -1,0 +1,8 @@
+name: dotfiles
+version: 1.0.0
+description: Shared APM defaults for dotfiles
+author: mullzhang
+dependencies:
+  apm: []
+  mcp: []
+scripts: {}
