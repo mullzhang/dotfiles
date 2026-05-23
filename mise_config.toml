@@ -3,66 +3,78 @@ node = "latest"
 python = "latest"
 uv = "latest"
 
+[tasks.ccn]
+description = "Output complexity CSV rows filtered by threshold argument"
+run = "bash ~/dotfiles/scripts/ccn.sh"
+raw_args = true
+quiet = true
+
 [tasks.op-json]
-description = "Impoort JSON file into 1password"
-run = "bash ~/ghq/localhost/scripts/import_json_to_1password.sh"
+description = "Import JSON file into 1Password"
+run = "bash ~/dotfiles/scripts/import_json_to_1password.sh"
+raw_args = true
+
+[tasks.loglevel-stats]
+description = "Get log level stats from log files"
+run = "python ~/dotfiles/scripts/log_level_stats.py"
+raw_args = true
 
 [tasks.osrm-bg]
 description = "Run OSRM container in background"
 run = """
-cd ~/ghq/localhost/scripts/osrm
-make background
-"""
-
-[tasks.loglevel-stats]
-description = "Get log level stats from log files"
-run = "bash ~/ghq/localhost/scripts/log_level_stats.sh"
-
-[tasks.ccn]
-description = "Output complexity CSV rows filtered by threshold argument"
-quiet = true
-run = """
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-run_ccn() {
-  threshold="${1:-${CCN_THRESHOLD:-15}}"
-  if [ "${1:-}" = "--" ]; then
-    threshold="${2:-${CCN_THRESHOLD:-15}}"
-  fi
+osrm_script_dir="${OSRM_SCRIPT_DIR:-$HOME/dotfiles/scripts/osrm}"
+area="${OSRM_AREA:-kanto}"
+osrm_file="$osrm_script_dir/.data/$area/$area-latest.osrm"
 
-  if ! printf '%s' "$threshold" | grep -Eq '^[0-9]+$'; then
-    echo "CCN threshold must be an integer: '$threshold'" >&2
-    exit 2
-  fi
+if [[ ! -f "$osrm_file" ]]; then
+  echo "OSRM data not found: $osrm_file" >&2
+  echo "Run 'mise run osrm-setup' first." >&2
+  exit 1
+fi
 
-  printf 'nloc,ccn,token_count,parameter_count,length,location,file,function,long_name,start_line,end_line\\n'
-  uv run lizard -l python --csv | awk -F, -v th="$threshold" '$2+0 >= th'
-}
-run_ccn "$@"
+make -C "$osrm_script_dir" background
 """
+
+[tasks.osrm-run]
+description = "Run OSRM container in foreground"
+run = "make -C ~/dotfiles/scripts/osrm run"
+
+[tasks.osrm-setup]
+description = "Download and prepare OSRM data"
+run = "make -C ~/dotfiles/scripts/osrm setup"
 
 [tasks.plotly-agg]
 description = "Aggregate Plotly HTML files into a single HTML file"
-run = "python ~/ghq/localhost/scripts/plotly_aggregator.py"
-
-[tasks.route-gmeet-files]
-description = "Route Google Meet files to project folders based on config"
-run = """
-source_dir='/Users/mull/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/Meet Recordings'
-config_path='/Users/mull/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/project-routes.yaml'
-prompt="route-project-files スキルを用いて、設定ファイル${config_path}に従って、${source_dir}配下のファイルを各プロジェクトのフォルダに移動してください。"
-codex -c 'model_reasoning_effort="low"' "$prompt"
-"""
+run = "python ~/dotfiles/scripts/plotly_aggregator.py"
+raw_args = true
 
 [tasks.route-files]
 description = "Route any files to project folders based on config"
 run = """
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 source_path="${1:?source_path is required}"
-config_path='/Users/mull/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/project-routes.yaml'
+config_path="${PROJECT_ROUTES_CONFIG:-$HOME/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/project-routes.yaml}"
+
 prompt="route-project-files スキルを用いて、設定ファイル${config_path}に従って、${source_path}(フォルダの場合は配下のファイル)を各プロジェクトのフォルダに移動してください。"
-codex -c 'model_reasoning_effort="low"' "$prompt"
+exec codex -c 'model_reasoning_effort="low"' "$prompt"
 """
+raw_args = true
+
+[tasks.route-gmeet-files]
+description = "Route Google Meet files to project folders based on config"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+source_dir="${GMEET_RECORDINGS_DIR:-$HOME/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/Meet Recordings}"
+config_path="${PROJECT_ROUTES_CONFIG:-$HOME/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/project-routes.yaml}"
+
+prompt="route-project-files スキルを用いて、設定ファイル${config_path}に従って、${source_dir}配下のファイルを各プロジェクトのフォルダに移動してください。"
+exec codex -c 'model_reasoning_effort="low"' "$prompt"
+"""
+raw_args = true

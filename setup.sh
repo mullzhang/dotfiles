@@ -7,6 +7,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 touch ~/.tmux/.tmux.local.conf
 
 # symbolic links
+mkdir -p ~/.config/git ~/.config/mise
+
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
