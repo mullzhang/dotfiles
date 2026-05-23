@@ -217,11 +217,34 @@ peco-mise () {
 zle -N peco-mise
 bindkey '^T' peco-mise
 
-# ghcr
+# Create a GitHub repository, clone it with ghq, and cd into it.
+#
+# Usage:
+#   ghcr <repo|owner/repo>
+#
+# Examples:
+#   ghcr my-new-repo
+#   ghcr my-org/my-new-repo
 function ghcr() {
-    gh repo create $1 --private
-    ghq get git@github.com:mullzhang/$1.git
-    cd ~/ghq/github.com/mullzhang/$1
+  local repo="$1"
+  local repo_path
+  local owner
+
+  if [[ -z "$repo" ]]; then
+    echo "Usage: ghcr <repo|owner/repo>"
+    return 2
+  fi
+
+  if [[ "$repo" == */* ]]; then
+    repo_path="$repo"
+  else
+    owner="$(gh api user --jq .login)" || return
+    repo_path="$owner/$repo"
+  fi
+
+  gh repo create "$repo_path" --private || return
+  ghq get -p "github.com/$repo_path" || return
+  cd "$(ghq root)/github.com/$repo_path" || return
 }
 
 # agent-safehouse
@@ -247,3 +270,6 @@ safe() {
     --append-profile="$SAFEHOUSE_APPEND_PROFILE" \
     -- "$@"
 }
+
+# Added by APM runtime setup
+export PATH="$HOME/.apm/runtimes:$PATH"

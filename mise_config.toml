@@ -5,7 +5,7 @@ uv = "latest"
 
 [tasks.op-json]
 description = "Impoort JSON file into 1password"
-run = "bash ~/scripts/import_json_to_1password.sh"
+run = "bash ~/ghq/localhost/scripts/import_json_to_1password.sh"
 
 [tasks.osrm-bg]
 description = "Run OSRM container in background"
@@ -40,4 +40,29 @@ run_ccn() {
   uv run lizard -l python --csv | awk -F, -v th="$threshold" '$2+0 >= th'
 }
 run_ccn "$@"
+"""
+
+[tasks.plotly-agg]
+description = "Aggregate Plotly HTML files into a single HTML file"
+run = "python ~/ghq/localhost/scripts/plotly_aggregator.py"
+
+[tasks.route-gmeet-files]
+description = "Route Google Meet files to project folders based on config"
+run = """
+source_dir='/Users/mull/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/Meet Recordings'
+config_path='/Users/mull/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/project-routes.yaml'
+prompt="route-project-files スキルを用いて、設定ファイル${config_path}に従って、${source_dir}配下のファイルを各プロジェクトのフォルダに移動してください。"
+codex -c 'model_reasoning_effort="low"' "$prompt"
+"""
+
+[tasks.route-files]
+description = "Route any files to project folders based on config"
+run = """
+#!/bin/bash
+set -euo pipefail
+
+source_path="${1:?source_path is required}"
+config_path='/Users/mull/Library/CloudStorage/GoogleDrive-maruyama@sigmailab.com/My Drive/project-routes.yaml'
+prompt="route-project-files スキルを用いて、設定ファイル${config_path}に従って、${source_path}(フォルダの場合は配下のファイル)を各プロジェクトのフォルダに移動してください。"
+codex -c 'model_reasoning_effort="low"' "$prompt"
 """
