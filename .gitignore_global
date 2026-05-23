@@ -63,3 +63,6 @@ DerivedData
 *.local.toml
 
 **/.claude/settings.local.json
+
+# SpecStory
+.specstory/
