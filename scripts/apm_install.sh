@@ -81,7 +81,11 @@ else
   rm -f "$apm_dir/apm.lock.yaml"
 fi
 
-apm "$action" --global "$@"
+if [[ "$action" == "install" ]]; then
+  apm install --global --refresh --update "$@"
+else
+  apm uninstall --global "$@"
+fi
 
 if [[ -f "$apm_dir/apm.lock.yaml" && ! -L "$apm_dir/apm.lock.yaml" ]]; then
   cp "$apm_dir/apm.lock.yaml" "$lock"

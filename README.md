@@ -126,3 +126,7 @@ mise run apm-install-shared -- <package>
 mise run apm-uninstall-local -- <package>
 mise run apm-uninstall-shared -- <package>
 ```
+
+Install tasks refresh and update existing APM dependencies before writing the
+lockfile, so unpinned dependencies can move to newer upstream commits. Pin a
+dependency with `#<sha>` or `#<tag>` when reproducibility matters.
