@@ -81,7 +81,7 @@ mise run brew-cleanup
 
 `brew-apply` and `brew-check` use `--no-upgrade`, so outdated packages do not
 make the snapshot fail. Use normal Homebrew upgrade commands when you want to
-update installed packages.
+update installed packages. `brew-cleanup` uninstalls extra formulae and casks.
 
 ## Local files
 

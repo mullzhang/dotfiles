@@ -69,8 +69,8 @@ description = "Update homebrew/Brewfile with Homebrew formulae and casks only"
 run = "brew bundle dump --formula --cask --file ~/dotfiles/homebrew/Brewfile --force"
 
 [tasks.brew-cleanup]
-description = "Show Homebrew packages not in homebrew/Brewfile"
-run = "brew bundle cleanup --file ~/dotfiles/homebrew/Brewfile"
+description = "Uninstall Homebrew formulae and casks not in homebrew/Brewfile"
+run = "brew bundle cleanup --formula --cask --file ~/dotfiles/homebrew/Brewfile --force"
 
 [tasks.apm-install-local]
 description = "Install an APM dependency into local APM config"
