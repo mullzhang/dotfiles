@@ -42,7 +42,7 @@ alias tf=terraform
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # coreutils (including tac command etc)
-export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
+export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
 
 # alfred
 # package manager
@@ -204,17 +204,17 @@ function peco-ghq() {
 zle -N peco-ghq
 bindkey '^G' peco-ghq
 
-# hub with peco
-function peco-hub() {
-    local selected_dir="$(ghq list | peco --prompt 'hub >' | cut -d '/' -f 2,3)"
+# gh browse with peco
+function peco-gh-browse() {
+    local selected_dir="$(ghq list | peco --prompt 'gh browse >' | cut -d '/' -f 2,3)"
     if [ -n "$selected_dir" ]; then
-        BUFFER="hub browse ${selected_dir}"
+        BUFFER="gh browse -R ${selected_dir}"
         zle accept-line
     fi
 }
 
-zle -N peco-hub
-bindkey '^Z' peco-hub
+zle -N peco-gh-browse
+bindkey '^Z' peco-gh-browse
 
 # vscode with peco
 function peco-code() {
