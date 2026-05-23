@@ -19,6 +19,11 @@ description = "Get log level stats from log files"
 run = "python ~/dotfiles/scripts/log_level_stats.py"
 raw_args = true
 
+[tasks.specstory-clean]
+description = "Clean SpecStory markdown exports"
+run = "python ~/dotfiles/scripts/specstory_clean.py"
+raw_args = true
+
 [tasks.osrm-bg]
 description = "Run OSRM container in background"
 run = """

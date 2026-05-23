@@ -5,6 +5,7 @@
 Keep script addition cheap.
 
 - Register tasks in `mise_config.toml` so they appear in the Ctrl+T mise task picker.
+- When adding or updating a reusable script, update `mise_config.toml` in the same change or state why no task is needed.
 - Keep short commands inline in `mise_config.toml`.
 - Move longer implementations into `scripts/` and call them from `mise_config.toml`.
 - Preserve implementation-oriented extensions such as `.py` and `.sh` in `scripts/`.
