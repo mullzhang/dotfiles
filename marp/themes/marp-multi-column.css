@@ -1,0 +1,27 @@
+:root {
+  --fw: 1;
+}
+
+/* ----- Layout ----- */
+.flex {
+  display: flex;
+  gap: 1em;
+}
+
+.sa {
+  justify-content: space-around;
+}
+
+.sb {
+  justify-content: space-between;
+}
+
+.sa div,
+.sb div {
+  margin: 0.1em;
+}
+
+.fw div {
+  flex: var(--fw);
+}
+

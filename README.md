@@ -20,6 +20,25 @@ scripts/import_json_to_1password.sh
 scripts/osrm/Makefile             # support file used by OSRM tasks
 ```
 
+## Shared assets
+
+Marp themes live under `marp/themes/`:
+
+```text
+marp/themes/marp-metropolis.css
+marp/themes/marp-multi-column.css
+marp/examples/minimal.md
+```
+
+Use them from Marp by passing the theme file path, or by registering these
+paths in editor-specific Marp settings.
+
+Minimal render example:
+
+```sh
+marp --theme marp/themes/marp-metropolis.css marp/examples/minimal.md
+```
+
 Homebrew is managed as an environment snapshot in `homebrew/Brewfile`:
 
 ```text

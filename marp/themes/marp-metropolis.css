@@ -1,0 +1,120 @@
+/* @theme metropolis */
+/* Author: mullzhang https://github.com/mullzhang/ */
+/* MIT license https://github.com/rnd195/my-marp-themes/blob/live/LICENSE */
+/* This theme was inspired by Metropolis Beamer Theme (https://github.com/matze/mtheme). */
+
+@import "default";
+@import "./marp-multi-column.css";
+
+:root {
+  font-family: "Fira Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --main: #27363a;
+  --secondary: #e29b5b;
+}
+
+section {
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 150% 1em;
+  padding: 2em;
+}
+
+header {
+  font-size: 0.8em;
+  text-align: left;
+  position: absolute;
+  top: 95%;
+  width: 100%;
+  left: 5%;
+  color: var(--main);
+}
+
+footer {
+  font-size: 0.8em;
+  position: absolute;
+  text-align: left;
+  top: 95%;
+  width: 100%;
+  right: 0;
+  left: 45%;
+  color: var(--main);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--main);
+}
+
+h1:nth-of-type(1) {
+  color: #ffffff;
+  background-color: var(--main);
+  border-top: 0.4em solid var(--main);
+  border-bottom: 0.4em solid var(--main);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1em;
+  text-indent: 0.5em;
+  font-size: 1.5em;
+}
+
+section::after {
+  font-size: 0.8em;
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+  position: absolute;
+  text-align: right;
+  top: 95%;
+  width: 100%;
+  right: 0;
+  left: -5%;
+  color: var(--main);
+}
+
+.katex {
+  font: normal 1.05em KaTeX_Main, "Times New Roman", serif;
+}
+
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+
+img[alt~="small"] {
+  width: 50%;
+}
+
+section.title > h1 {
+  color: var(--main);
+  background-color: white;
+  border-top: 0;
+  border-bottom: 0.05em solid var(--secondary);
+  padding-bottom: 0.5em;
+  text-align: center;
+  text-indent: 0;
+  font-size: 1.8em;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: auto;
+}
+
+section.title > p {
+  position: relative;
+  text-align: center;
+  top: 25%;
+}
+
+section.tinytext > p,
+section.tinytext > ul,
+section.tinytext > blockquote {
+  font-size: 0.65em;
+}
