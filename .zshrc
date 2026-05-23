@@ -4,7 +4,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # local file
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/dotfiles/local/zshrc ] && source ~/dotfiles/local/zshrc
 
 # Alias
 alias ls="ls -aG"

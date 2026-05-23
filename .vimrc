@@ -151,3 +151,7 @@ cnoreabbrev gopen Gbrowse
 " rust.vim
 syntax enable
 filetype plugin indent on
+
+if filereadable(expand('~/dotfiles/local/vimrc'))
+  source ~/dotfiles/local/vimrc
+endif

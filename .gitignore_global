@@ -14,7 +14,6 @@ TAGS
 *.dvi
 *.aux
 *.elc
-.zshrc.local
 samples
 .netrwhist
 .bundle

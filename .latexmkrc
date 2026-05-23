@@ -72,3 +72,5 @@ if ($^O eq 'MSWin32') {
     $pdf_previewer               = 'xdg-open';
   }
 }
+
+do "$ENV{HOME}/dotfiles/local/latexmkrc" if -f "$ENV{HOME}/dotfiles/local/latexmkrc";

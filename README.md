@@ -18,3 +18,22 @@ scripts/log_level_stats.py        # longer implementation called by a task
 scripts/import_json_to_1password.sh
 scripts/osrm/Makefile             # support file used by OSRM tasks
 ```
+
+## Local files
+
+Machine-specific overrides live under `local/`, which is ignored by git.
+
+Supported files:
+
+```text
+local/zshrc
+local/gitconfig
+local/tmux.conf
+local/vimrc
+local/latexmkrc
+local/mise.toml
+```
+
+`setup.sh` links `local/mise.toml` to `~/.config/mise/conf.d/local.toml` so it
+is loaded as a global mise override. Prefer `local/zshrc` for machine-specific
+environment variables consumed by tasks.

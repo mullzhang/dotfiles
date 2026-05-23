@@ -1,1 +1,7 @@
+# OSRM
 scripts/osrm/.data/
+
+# Local configuration files
+local/
+mise.local.toml
+mise.*.local.toml
