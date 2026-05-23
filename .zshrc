@@ -137,6 +137,33 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
 fi
 
+# dotfiles
+alias dots='git -C ~/dotfiles status -sb'
+alias dotsync='git -C ~/dotfiles pull --rebase --autostash origin main'
+
+function _dotfiles_status_on_cd() {
+  local repo="$HOME/dotfiles"
+
+  [[ "$PWD" == "$repo" || "$PWD" == "$repo"/* ]] || return
+
+  git -C "$repo" fetch --quiet origin 2>/dev/null
+
+  local msg=()
+  [[ -n "$(git -C "$repo" status --porcelain)" ]] && msg+=("dirty")
+
+  local counts ahead behind
+  counts="$(git -C "$repo" rev-list --left-right --count HEAD...origin/main 2>/dev/null)" || return
+  read ahead behind <<< "$counts"
+
+  (( ahead > 0 )) && msg+=("ahead:$ahead")
+  (( behind > 0 )) && msg+=("behind:$behind")
+
+  (( ${#msg[@]} > 0 )) && print -P "%F{yellow}dotfiles:%f ${msg[*]}"
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd _dotfiles_status_on_cd
+
 # cdr with peco
 function peco-cdr() {
     local selected_dir="$(cdr -l | sed 's/^[[:digit:]]*[[:blank:]]*//' | peco --prompt="cdr >" --query "$LBUFFER")"
