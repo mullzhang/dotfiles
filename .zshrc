@@ -298,5 +298,20 @@ safe() {
     -- "$@"
 }
 
+# Vim to open files as utf-8 (for SpecStory)
+# alias vimutf8="vim -c 'edit ++enc=utf-8 ++bad=?'"
+vimutf8() {
+  vim -c 'set nomore' -c 'edit ++enc=utf-8 ++bad=?' "$@"
+}
+
+# mkdir and cd
+function mkcd() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: mkcd <directory>"
+    return 1
+  fi
+  mkdir -p "$1" && cd "$1"
+}
+
 # Added by APM runtime setup
 export PATH="$HOME/.apm/runtimes:$PATH"
