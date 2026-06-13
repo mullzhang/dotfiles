@@ -92,6 +92,14 @@ description = "Uninstall an APM dependency from shared APM config"
 run = "bash ~/dotfiles/scripts/apm_install.sh shared uninstall"
 raw_args = true
 
+[tasks.apm-update-local]
+description = "Update local APM dependencies and deploy agent skills"
+run = "bash ~/dotfiles/scripts/apm_install.sh local update"
+
+[tasks.apm-update-shared]
+description = "Update shared APM dependencies and deploy agent skills"
+run = "bash ~/dotfiles/scripts/apm_install.sh shared update"
+
 [tasks.route-files]
 description = "Route any files to project folders based on config"
 run = """

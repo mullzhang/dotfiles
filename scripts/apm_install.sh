@@ -5,18 +5,20 @@ usage() {
   cat <<'USAGE'
 Usage:
   apm_install.sh <shared|local> <install|uninstall> <package> [apm args...]
+  apm_install.sh <shared|local> <update>
 
 Examples:
   apm_install.sh local install Sigma-i/sigmai-shared-skills
   apm_install.sh shared install github/awesome-copilot/skills/gh-cli
   apm_install.sh local uninstall Sigma-i/sigmai-shared-skills
+  apm_install.sh local update
 USAGE
 }
 
 scope="${1:-}"
 action="${2:-}"
 
-if [[ $# -lt 3 ]]; then
+if [[ $# -lt 2 ]]; then
   usage >&2
   exit 2
 fi
@@ -32,10 +34,25 @@ case "$scope" in
 esac
 
 case "$action" in
-  install|uninstall) ;;
+  install|uninstall|update) ;;
   *)
-    echo "action must be 'install' or 'uninstall': $action" >&2
+    echo "action must be 'install', 'uninstall', or 'update': $action" >&2
     exit 2
+    ;;
+esac
+
+case "$action" in
+  install|uninstall)
+    if [[ $# -lt 1 ]]; then
+      usage >&2
+      exit 2
+    fi
+    ;;
+  update)
+    if [[ $# -ne 0 ]]; then
+      echo "'$action' updates the full dependency graph and does not accept package args" >&2
+      exit 2
+    fi
     ;;
 esac
 
@@ -142,11 +159,18 @@ fi
 ln -sf "$tmp_manifest" "$apm_dir/apm.yml"
 ln -sf "$tmp_lock" "$apm_dir/apm.lock.yaml"
 
-if [[ "$action" == "install" ]]; then
-  apm install --global --refresh --update "$@"
-else
-  apm uninstall --global "$@"
-fi
+case "$action" in
+  install)
+    apm install --global --refresh --update "$@"
+    ;;
+  uninstall)
+    apm uninstall --global "$@"
+    ;;
+  update)
+    apm update --global --yes
+    apm install --global --frozen --target agent-skills
+    ;;
+esac
 
 cp "$tmp_manifest" "$manifest"
 if [[ -f "$tmp_lock" ]]; then
