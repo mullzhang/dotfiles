@@ -228,6 +228,31 @@ function peco-code() {
 zle -N peco-code
 bindkey '^V' peco-code
 
+# cd to a direct child folder with peco
+function peco-open-folder() {
+    local base_dir="${FOLDER_OPENER_BASE:-}"
+    if [[ -z "$base_dir" || ! -d "$base_dir" ]]; then
+        echo "Set FOLDER_OPENER_BASE to a directory."
+        return 1
+    fi
+
+    local selected_name
+    selected_name="$(find "$base_dir" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort -f | peco --prompt="folder >" --query "${1:-${LBUFFER:-}}")"
+    if [[ -n "$selected_name" ]]; then
+        if [[ -n "${WIDGET:-}" ]]; then
+            BUFFER="cd ${(q)base_dir}/${(q)selected_name}"
+            zle accept-line
+        else
+            cd "$base_dir/$selected_name"
+        fi
+    fi
+
+    zle redisplay 2>/dev/null || true
+}
+
+zle -N peco-open-folder
+bindkey '^O' peco-open-folder
+
 # mise with peco
 # Ref. https://zenn.dev/rakuten_tech/articles/mise-peco-task-runner-workflow
 peco-mise () {

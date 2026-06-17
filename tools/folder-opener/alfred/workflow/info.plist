@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>localhost.folder-opener</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>script-filter-folders</key>
+		<dict>
+			<key>script-open-folder</key>
+			<array>
+				<dict>
+					<key>modifier</key>
+					<integer>0</integer>
+					<key>modifiersubtext</key>
+					<string></string>
+					<key>text</key>
+					<string></string>
+					<key>vitoclose</key>
+					<false/>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>createdby</key>
+	<string>Codex</string>
+	<key>description</key>
+	<string>Search folders by name and open the selected folder in Finder.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Folder Opener</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>fld</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Searching folders...</string>
+				<key>script</key>
+				<string>./search.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search folders</string>
+				<key>title</key>
+				<string>Open folder</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>script-filter-folders</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./open.sh "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>script-open-folder</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Set FOLDER_OPENER_BASE to the parent folder containing searchable folders. Use "fld folder-name" in Alfred, then press Enter to open the selected folder in Finder.</string>
+	<key>uidata</key>
+	<dict>
+		<key>script-filter-folders</key>
+		<dict>
+			<key>xpos</key>
+			<integer>120</integer>
+			<key>ypos</key>
+			<integer>140</integer>
+		</dict>
+		<key>script-open-folder</key>
+		<dict>
+			<key>xpos</key>
+			<integer>420</integer>
+			<key>ypos</key>
+			<integer>140</integer>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>FOLDER_OPENER_BASE</key>
+		<string></string>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
