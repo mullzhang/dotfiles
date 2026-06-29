@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-06-13T11:05:02.938276+00:00'
+generated_at: '2026-06-17T06:02:25.283079+00:00'
 apm_version: 0.20.0
 dependencies:
 - repo_url: little-hands/claude-drawio-skill
@@ -124,9 +124,12 @@ dependencies:
   content_hash: sha256:c75e106cec48dd02c8e87504a88e90d2b84f4472bfadf395e6fd4a86763c4a64
 - repo_url: mullzhang/skills
   host: github.com
-  resolved_commit: fcc78823b54a27d2556d8328af41f5cafb2fed33
+  resolved_commit: 57e80f312fbfa80baa2217d202e1d77865e12e32
   package_type: marketplace_plugin
   deployed_files:
+  - .agents/skills/argument-gap-edit
+  - .agents/skills/argument-gap-edit/README.md
+  - .agents/skills/argument-gap-edit/SKILL.md
   - .agents/skills/async-tmux-agent-job
   - .agents/skills/async-tmux-agent-job/SKILL.md
   - .agents/skills/async-tmux-agent-job/agents/openai.yaml
@@ -143,6 +146,9 @@ dependencies:
   - .agents/skills/grill-me/SKILL.md
   - .agents/skills/grill-me/agents/openai.yaml
   - .agents/skills/grill-me/references/sample_questionnaire.md
+  - .agents/skills/japanese-tech-writing
+  - .agents/skills/japanese-tech-writing/README.md
+  - .agents/skills/japanese-tech-writing/SKILL.md
   - .agents/skills/lean-code
   - .agents/skills/lean-code/SKILL.md
   - .agents/skills/lean-code/references/review_checklist.md
@@ -170,6 +176,9 @@ dependencies:
   - .agents/skills/test-only-dead-code-detector/SKILL.md
   - .agents/skills/test-only-dead-code-detector/agents/openai.yaml
   - .agents/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py
+  - .claude/skills/argument-gap-edit
+  - .claude/skills/argument-gap-edit/README.md
+  - .claude/skills/argument-gap-edit/SKILL.md
   - .claude/skills/async-tmux-agent-job
   - .claude/skills/async-tmux-agent-job/SKILL.md
   - .claude/skills/async-tmux-agent-job/agents/openai.yaml
@@ -186,6 +195,9 @@ dependencies:
   - .claude/skills/grill-me/SKILL.md
   - .claude/skills/grill-me/agents/openai.yaml
   - .claude/skills/grill-me/references/sample_questionnaire.md
+  - .claude/skills/japanese-tech-writing
+  - .claude/skills/japanese-tech-writing/README.md
+  - .claude/skills/japanese-tech-writing/SKILL.md
   - .claude/skills/lean-code
   - .claude/skills/lean-code/SKILL.md
   - .claude/skills/lean-code/references/review_checklist.md
@@ -257,6 +269,8 @@ dependencies:
   - .kiro/skills/test-only-dead-code-detector/agents/openai.yaml
   - .kiro/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py
   deployed_file_hashes:
+    .agents/skills/argument-gap-edit/README.md: sha256:80f4206cfc5e7464c0369be85d8b00419d4a955db362987a5350f0721a1fc0d3
+    .agents/skills/argument-gap-edit/SKILL.md: sha256:bee488567f7118defa5acd986e2040284470aad002bc397c4ddbe8d38fc3dd57
     .agents/skills/async-tmux-agent-job/SKILL.md: sha256:8f56a12266ff381735eb5ebe8daa2709b8fac4795e02935014f2785df0b052ff
     .agents/skills/async-tmux-agent-job/agents/openai.yaml: sha256:25140119b161d1b36bc097e0a76928670c57b051a2fb0d8ddf03a2f377f78f11
     .agents/skills/async-tmux-agent-job/scripts/start_async_tmux_agent_job.py: sha256:2bee806991f3995da1fe7d08685dd1610d771d139494d8b7f3aa70135ca00dfa
@@ -269,6 +283,8 @@ dependencies:
     .agents/skills/grill-me/SKILL.md: sha256:d12085bb82068be6da9d141aa49713e134d7ae6f752150662a7f817a02a8f917
     .agents/skills/grill-me/agents/openai.yaml: sha256:df87b746de7afea687d4f3a2575a7247d5974f049b89a4163435bcd8253a062f
     .agents/skills/grill-me/references/sample_questionnaire.md: sha256:3adbc0e0a7fc626fd285088606de43ac081f6594fdac41ba87e7d7dcc53ec818
+    .agents/skills/japanese-tech-writing/README.md: sha256:4dd74bc6550dfd735c1f9fe10075be59b6049b4cd27dea831151225a3fc8718c
+    .agents/skills/japanese-tech-writing/SKILL.md: sha256:1f2ecac39b4dd1aad33cb6d09ccf10d66cfe35e73e6541c02ee4399004531b15
     .agents/skills/lean-code/SKILL.md: sha256:e94c5b970a3df9d59817c920ce2430b9b525e26f3184369b15d6dbf08899d94f
     .agents/skills/lean-code/references/review_checklist.md: sha256:3ba45121eb7b52dfe9d1cdcc64ca74bb77dedf75fcc337f843fade186e95e7ce
     .agents/skills/md-questionnaire/SKILL.md: sha256:ba9d233948e8324cca0929bdacb6ab34937bbbc0308718fc6908a608112a2ac8
@@ -291,6 +307,8 @@ dependencies:
     .agents/skills/test-only-dead-code-detector/SKILL.md: sha256:cf0d160b3719a2f4332b5a7a398f639068c03ca9def6ca1040d741ea9c3354dc
     .agents/skills/test-only-dead-code-detector/agents/openai.yaml: sha256:b9e08e9275ea989634779a32598fcc64c6d6daf74113230877c04dc79460a6c9
     .agents/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py: sha256:9833ad1473fa16291b191b077d3241faf328c806f145c6dc803147cd8d834388
+    .claude/skills/argument-gap-edit/README.md: sha256:80f4206cfc5e7464c0369be85d8b00419d4a955db362987a5350f0721a1fc0d3
+    .claude/skills/argument-gap-edit/SKILL.md: sha256:bee488567f7118defa5acd986e2040284470aad002bc397c4ddbe8d38fc3dd57
     .claude/skills/async-tmux-agent-job/SKILL.md: sha256:8f56a12266ff381735eb5ebe8daa2709b8fac4795e02935014f2785df0b052ff
     .claude/skills/async-tmux-agent-job/agents/openai.yaml: sha256:25140119b161d1b36bc097e0a76928670c57b051a2fb0d8ddf03a2f377f78f11
     .claude/skills/async-tmux-agent-job/scripts/start_async_tmux_agent_job.py: sha256:2bee806991f3995da1fe7d08685dd1610d771d139494d8b7f3aa70135ca00dfa
@@ -303,6 +321,8 @@ dependencies:
     .claude/skills/grill-me/SKILL.md: sha256:d12085bb82068be6da9d141aa49713e134d7ae6f752150662a7f817a02a8f917
     .claude/skills/grill-me/agents/openai.yaml: sha256:df87b746de7afea687d4f3a2575a7247d5974f049b89a4163435bcd8253a062f
     .claude/skills/grill-me/references/sample_questionnaire.md: sha256:3adbc0e0a7fc626fd285088606de43ac081f6594fdac41ba87e7d7dcc53ec818
+    .claude/skills/japanese-tech-writing/README.md: sha256:4dd74bc6550dfd735c1f9fe10075be59b6049b4cd27dea831151225a3fc8718c
+    .claude/skills/japanese-tech-writing/SKILL.md: sha256:1f2ecac39b4dd1aad33cb6d09ccf10d66cfe35e73e6541c02ee4399004531b15
     .claude/skills/lean-code/SKILL.md: sha256:e94c5b970a3df9d59817c920ce2430b9b525e26f3184369b15d6dbf08899d94f
     .claude/skills/lean-code/references/review_checklist.md: sha256:3ba45121eb7b52dfe9d1cdcc64ca74bb77dedf75fcc337f843fade186e95e7ce
     .claude/skills/md-questionnaire/SKILL.md: sha256:ba9d233948e8324cca0929bdacb6ab34937bbbc0308718fc6908a608112a2ac8
@@ -359,4 +379,4 @@ dependencies:
     .kiro/skills/test-only-dead-code-detector/SKILL.md: sha256:cf0d160b3719a2f4332b5a7a398f639068c03ca9def6ca1040d741ea9c3354dc
     .kiro/skills/test-only-dead-code-detector/agents/openai.yaml: sha256:b9e08e9275ea989634779a32598fcc64c6d6daf74113230877c04dc79460a6c9
     .kiro/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py: sha256:9833ad1473fa16291b191b077d3241faf328c806f145c6dc803147cd8d834388
-  content_hash: sha256:c858afa669f1f73a0ab45680a24bdb4667b6c6589a508246fb02a868d167facf
+  content_hash: sha256:3e78407d838721dee01b95752d3741ac8a14100df84978f198ba4cc021e8aa73
