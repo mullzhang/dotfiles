@@ -167,8 +167,7 @@ case "$action" in
     apm uninstall --global "$@"
     ;;
   update)
-    apm update --global --yes
-    apm install --global --frozen --target agent-skills
+    apm update --global --yes --target agent-skills
     ;;
 esac
 

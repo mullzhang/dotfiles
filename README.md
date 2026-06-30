@@ -124,8 +124,12 @@ mise run apm-install-local -- <package>
 mise run apm-install-shared -- <package>
 mise run apm-uninstall-local -- <package>
 mise run apm-uninstall-shared -- <package>
+mise run apm-update-local
+mise run apm-update-shared
 ```
 
-Install tasks refresh and update existing APM dependencies before writing the
-lockfile, so unpinned dependencies can move to newer upstream commits. Pin a
-dependency with `#<sha>` or `#<tag>` when reproducibility matters.
+Update tasks fetch the latest upstream APM dependency graph, write the lockfile,
+and deploy agent skills in one step. Unpinned dependencies can move to newer
+upstream commits, so an upstream package with a broken transitive dependency can
+break the update. Pin a dependency with `#<sha>` or `#<tag>` when reproducibility
+matters.

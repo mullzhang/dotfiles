@@ -93,11 +93,11 @@ run = "bash ~/dotfiles/scripts/apm_install.sh shared uninstall"
 raw_args = true
 
 [tasks.apm-update-local]
-description = "Update local APM dependencies and deploy agent skills"
+description = "Update local APM dependencies from upstream and deploy agent skills"
 run = "bash ~/dotfiles/scripts/apm_install.sh local update"
 
 [tasks.apm-update-shared]
-description = "Update shared APM dependencies and deploy agent skills"
+description = "Update shared APM dependencies from upstream and deploy agent skills"
 run = "bash ~/dotfiles/scripts/apm_install.sh shared update"
 
 [tasks.route-files]
