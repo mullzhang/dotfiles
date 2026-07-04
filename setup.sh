@@ -35,7 +35,6 @@ if [ ! -f ~/dotfiles/local/tmux.conf ]; then
   printf '%s\n' \
     '# Machine-specific tmux settings.' \
     '' \
-    '# set -g default-shell /opt/homebrew/bin/zsh' \
     > ~/dotfiles/local/tmux.conf
 fi
 
