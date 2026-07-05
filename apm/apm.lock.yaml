@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-06-17T06:02:25.283079+00:00'
+generated_at: '2026-07-05T04:16:08.859305+00:00'
 apm_version: 0.20.0
 dependencies:
 - repo_url: little-hands/claude-drawio-skill
@@ -46,7 +46,7 @@ dependencies:
   content_hash: sha256:371750e82b8f816c5a4166c224ece2f512df9a755fbe55e1168b433da72ed0c9
 - repo_url: microsoft/playwright-cli
   host: github.com
-  resolved_commit: 9b118a1a737662fa118d591b5687340b86005d5c
+  resolved_commit: 74d9bf144a96770b6295ceedecb07a2fd7e86775
   virtual_path: skills/playwright-cli
   is_virtual: true
   package_type: claude_skill
@@ -88,7 +88,7 @@ dependencies:
   - .kiro/skills/playwright-cli/references/tracing.md
   - .kiro/skills/playwright-cli/references/video-recording.md
   deployed_file_hashes:
-    .agents/skills/playwright-cli/SKILL.md: sha256:b4c81c39e39f30e4790607e57b12283878f3751daca9c0e44f301899f2108b13
+    .agents/skills/playwright-cli/SKILL.md: sha256:e72ed4ba7e35b594056efedbd1d773b747d501a18b29ad4f04ab58224f48d7ed
     .agents/skills/playwright-cli/references/element-attributes.md: sha256:bf19aa4671e0a50a0fefa9c790f39124e803060eefe395042b723c29fcb7faa2
     .agents/skills/playwright-cli/references/playwright-tests.md: sha256:c5b0719fef2cfdff50bd744051b2f9afc119775db4b48e9b2882c1cf3886797c
     .agents/skills/playwright-cli/references/request-mocking.md: sha256:54e801c9663fc2b6d68ceb058cb1c360724c2499f42acc7852a68e83e5b5f37c
@@ -121,10 +121,10 @@ dependencies:
     .kiro/skills/playwright-cli/references/test-generation.md: sha256:2a9c4d94effa31b05cf367dfa8bbace8874a3bc9799987ad2b03269af224d299
     .kiro/skills/playwright-cli/references/tracing.md: sha256:792e0ac7705e56ac48df84c0f5400221ce86107897c671590a64a4ea6a82508e
     .kiro/skills/playwright-cli/references/video-recording.md: sha256:8555ab5400df0d90e66318aacc0a8a4418fbf872e7463824d55d5c41615abd83
-  content_hash: sha256:c75e106cec48dd02c8e87504a88e90d2b84f4472bfadf395e6fd4a86763c4a64
+  content_hash: sha256:75765540e8eac67f5850207dacf1e2d410763a13841658367b9be6e81ecd8010
 - repo_url: mullzhang/skills
   host: github.com
-  resolved_commit: 57e80f312fbfa80baa2217d202e1d77865e12e32
+  resolved_commit: f5abb558cdb428bb62aecd1832f4aac31babefa8
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/argument-gap-edit
@@ -134,6 +134,9 @@ dependencies:
   - .agents/skills/async-tmux-agent-job/SKILL.md
   - .agents/skills/async-tmux-agent-job/agents/openai.yaml
   - .agents/skills/async-tmux-agent-job/scripts/start_async_tmux_agent_job.py
+  - .agents/skills/fable-prompt-tuner
+  - .agents/skills/fable-prompt-tuner/SKILL.md
+  - .agents/skills/fable-prompt-tuner/agents/openai.yaml
   - .agents/skills/file-organizer
   - .agents/skills/file-organizer/SKILL.md
   - .agents/skills/file-organizer/scripts/analyze_files.py
@@ -274,6 +277,8 @@ dependencies:
     .agents/skills/async-tmux-agent-job/SKILL.md: sha256:8f56a12266ff381735eb5ebe8daa2709b8fac4795e02935014f2785df0b052ff
     .agents/skills/async-tmux-agent-job/agents/openai.yaml: sha256:25140119b161d1b36bc097e0a76928670c57b051a2fb0d8ddf03a2f377f78f11
     .agents/skills/async-tmux-agent-job/scripts/start_async_tmux_agent_job.py: sha256:2bee806991f3995da1fe7d08685dd1610d771d139494d8b7f3aa70135ca00dfa
+    .agents/skills/fable-prompt-tuner/SKILL.md: sha256:83a526c4b078c36f5a72826cf6cc54f81ce9284d26d1fd6653d1fbd5f01a20a7
+    .agents/skills/fable-prompt-tuner/agents/openai.yaml: sha256:3916c5b1ec326bd777dbbf61f4d8ac363efe21c49df8c8337f5422c3ba9e14a2
     .agents/skills/file-organizer/SKILL.md: sha256:ed7b4dfdb7e451f994be4d2702f5835bb2ffa1a49cfd5991fcb8b13ce4754cca
     .agents/skills/file-organizer/scripts/analyze_files.py: sha256:b537b2f173f704acddb0fdc62d54b1a181a37988211d085bbf29cf47fbeb943a
     .agents/skills/file-organizer/scripts/organize_files.py: sha256:cfe8ccc59f79fd05d68f5826f0deff941b72ebfc561775da869ccc60557753c2
@@ -379,4 +384,4 @@ dependencies:
     .kiro/skills/test-only-dead-code-detector/SKILL.md: sha256:cf0d160b3719a2f4332b5a7a398f639068c03ca9def6ca1040d741ea9c3354dc
     .kiro/skills/test-only-dead-code-detector/agents/openai.yaml: sha256:b9e08e9275ea989634779a32598fcc64c6d6daf74113230877c04dc79460a6c9
     .kiro/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py: sha256:9833ad1473fa16291b191b077d3241faf328c806f145c6dc803147cd8d834388
-  content_hash: sha256:3e78407d838721dee01b95752d3741ac8a14100df84978f198ba4cc021e8aa73
+  content_hash: sha256:672fed6be60598f2a3afd3d753cdc9b955c8c2a43463e65d2f5a0cde1a3b5f32
