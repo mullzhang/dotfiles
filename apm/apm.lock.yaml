@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-07-05T04:16:08.859305+00:00'
-apm_version: 0.20.0
+generated_at: '2026-07-06T04:50:06.786577+00:00'
+apm_version: 0.21.0
 dependencies:
 - repo_url: little-hands/claude-drawio-skill
   host: github.com
@@ -124,7 +124,7 @@ dependencies:
   content_hash: sha256:75765540e8eac67f5850207dacf1e2d410763a13841658367b9be6e81ecd8010
 - repo_url: mullzhang/skills
   host: github.com
-  resolved_commit: f5abb558cdb428bb62aecd1832f4aac31babefa8
+  resolved_commit: cbaacb41b7a4dc38b6a4a9dc91d989d3bbbbfe59
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/argument-gap-edit
@@ -277,7 +277,7 @@ dependencies:
     .agents/skills/async-tmux-agent-job/SKILL.md: sha256:8f56a12266ff381735eb5ebe8daa2709b8fac4795e02935014f2785df0b052ff
     .agents/skills/async-tmux-agent-job/agents/openai.yaml: sha256:25140119b161d1b36bc097e0a76928670c57b051a2fb0d8ddf03a2f377f78f11
     .agents/skills/async-tmux-agent-job/scripts/start_async_tmux_agent_job.py: sha256:2bee806991f3995da1fe7d08685dd1610d771d139494d8b7f3aa70135ca00dfa
-    .agents/skills/fable-prompt-tuner/SKILL.md: sha256:83a526c4b078c36f5a72826cf6cc54f81ce9284d26d1fd6653d1fbd5f01a20a7
+    .agents/skills/fable-prompt-tuner/SKILL.md: sha256:a78b270b85864954c93187ca66476a4b2365a898e4e7a8eeab8c414faf0e034b
     .agents/skills/fable-prompt-tuner/agents/openai.yaml: sha256:3916c5b1ec326bd777dbbf61f4d8ac363efe21c49df8c8337f5422c3ba9e14a2
     .agents/skills/file-organizer/SKILL.md: sha256:ed7b4dfdb7e451f994be4d2702f5835bb2ffa1a49cfd5991fcb8b13ce4754cca
     .agents/skills/file-organizer/scripts/analyze_files.py: sha256:b537b2f173f704acddb0fdc62d54b1a181a37988211d085bbf29cf47fbeb943a
@@ -384,4 +384,5 @@ dependencies:
     .kiro/skills/test-only-dead-code-detector/SKILL.md: sha256:cf0d160b3719a2f4332b5a7a398f639068c03ca9def6ca1040d741ea9c3354dc
     .kiro/skills/test-only-dead-code-detector/agents/openai.yaml: sha256:b9e08e9275ea989634779a32598fcc64c6d6daf74113230877c04dc79460a6c9
     .kiro/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py: sha256:9833ad1473fa16291b191b077d3241faf328c806f145c6dc803147cd8d834388
-  content_hash: sha256:672fed6be60598f2a3afd3d753cdc9b955c8c2a43463e65d2f5a0cde1a3b5f32
+  content_hash: sha256:2ab8decf54e81883b345982493c1a0fc5f824ca4b9397dc2601dc0b5dc650c08
+  declared_license: MIT
