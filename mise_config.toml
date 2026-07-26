@@ -100,6 +100,15 @@ run = "bash ~/dotfiles/scripts/apm_install.sh local update"
 description = "Update shared APM dependencies from upstream and deploy agent skills"
 run = "bash ~/dotfiles/scripts/apm_install.sh shared update"
 
+[tasks."apm-sync"]
+description = "Regenerate APM runtime files from the committed lockfile"
+run = """
+find .apm/skills .agents/skills .claude/skills -type d -name __pycache__ -prune -exec rm -rf {} +
+
+apm install --frozen
+apm compile
+"""
+
 [tasks.route-files]
 description = "Route any files to project folders based on config"
 run = """
