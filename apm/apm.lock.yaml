@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-07-21T09:45:23.820617+00:00'
-apm_version: 0.21.0
+generated_at: '2026-07-26T03:40:46.883019+00:00'
+apm_version: 0.20.0
 dependencies:
 - repo_url: little-hands/claude-drawio-skill
   host: github.com
@@ -122,7 +122,7 @@ dependencies:
   content_hash: sha256:823f5cee8a67bf3be400529cf8bce84f7b48023e3c9b06807e4dfaad4091512b
 - repo_url: mullzhang/skills
   host: github.com
-  resolved_commit: 8c71267093cb3baecbc78ffe6f311608dbd9bbcf
+  resolved_commit: 9dba34950c2a74d434fd4368c74749d13204d75c
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/argument-gap-edit
@@ -152,9 +152,11 @@ dependencies:
   - .agents/skills/grill-me/SKILL.md
   - .agents/skills/grill-me/agents/openai.yaml
   - .agents/skills/grill-me/references/sample_questionnaire.md
-  - .agents/skills/japanese-tech-writing
-  - .agents/skills/japanese-tech-writing/README.md
-  - .agents/skills/japanese-tech-writing/SKILL.md
+  - .agents/skills/japanese-writing
+  - .agents/skills/japanese-writing/SKILL.md
+  - .agents/skills/japanese-writing/agents/openai.yaml
+  - .agents/skills/japanese-writing/references/README.md
+  - .agents/skills/japanese-writing/references/japanese-tech-writing.md
   - .agents/skills/kanary-transcribe-media
   - .agents/skills/kanary-transcribe-media/SKILL.md
   - .agents/skills/kanary-transcribe-media/agents/openai.yaml
@@ -281,7 +283,7 @@ dependencies:
   - .kiro/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py
   deployed_file_hashes:
     .agents/skills/argument-gap-edit/README.md: sha256:80f4206cfc5e7464c0369be85d8b00419d4a955db362987a5350f0721a1fc0d3
-    .agents/skills/argument-gap-edit/SKILL.md: sha256:67aa1d6eec3df19ec6a60bddc2ff3e25de74add26a8e33a57d2ce49849a81cdc
+    .agents/skills/argument-gap-edit/SKILL.md: sha256:a04c36861aeb5f532372d527a60ae4efdeeb43c8af5cf97f2f11608823c2b597
     .agents/skills/async-tmux-agent-job/SKILL.md: sha256:8f56a12266ff381735eb5ebe8daa2709b8fac4795e02935014f2785df0b052ff
     .agents/skills/async-tmux-agent-job/agents/openai.yaml: sha256:25140119b161d1b36bc097e0a76928670c57b051a2fb0d8ddf03a2f377f78f11
     .agents/skills/async-tmux-agent-job/scripts/start_async_tmux_agent_job.py: sha256:2bee806991f3995da1fe7d08685dd1610d771d139494d8b7f3aa70135ca00dfa
@@ -289,7 +291,7 @@ dependencies:
     .agents/skills/collect-review-docs/agents/openai.yaml: sha256:244e8c14a5390704d1a0e26dbc737facf5c530b24c3dca12f376b4f94a7d3031
     .agents/skills/collect-review-docs/scripts/copy_selected_docs.py: sha256:c10b0ae5fb8414ab45f9c8824fa0117c8c486eb9fe8625a9e4b885f76f650404
     .agents/skills/collect-review-docs/scripts/list_doc_candidates.py: sha256:eeb9fb790c7f451b6ccb5df8561aa5cef48bc2664f4df4b30af0116bf0c86dff
-    .agents/skills/fable-prompt-tuner/SKILL.md: sha256:89d99a279e698f9c32670fb32659f5ca1d9e448c3eaaf14dfa5c38c8f4e1c6d7
+    .agents/skills/fable-prompt-tuner/SKILL.md: sha256:e1c8620d38df29db4f1e06ac2e912fc0e09e52e4809a4d3d17003d1a97a82345
     .agents/skills/fable-prompt-tuner/agents/openai.yaml: sha256:96ec913ac1ef08a9092d7c0d43437a12c78fee643e8f47028e3f8c3d9b7e83d3
     .agents/skills/file-organizer/SKILL.md: sha256:b22ed6b25e1fd3265e79676fc64427d7beb0d35b39b2b42274a4fd0f311bc42d
     .agents/skills/file-organizer/scripts/analyze_files.py: sha256:b537b2f173f704acddb0fdc62d54b1a181a37988211d085bbf29cf47fbeb943a
@@ -297,27 +299,29 @@ dependencies:
     .agents/skills/github-issue-dupe-check/SKILL.md: sha256:7291eb225363702d8dc2fc5bdbbb234badee62486d3df9aa979ac7b383bef2ca
     .agents/skills/github-issue-dupe-check/agents/openai.yaml: sha256:cc8f0f9a3aef694853d20db7cb36758604019d6def12bc4f4a06a99c3a44578f
     .agents/skills/github-issue-dupe-check/scripts/collect_issue_candidates.py: sha256:1b2a1b66d565a77d0a78343635f8c9c238169474269102d5fda65c187ed723ca
-    .agents/skills/grill-me/SKILL.md: sha256:e67e705bcc4c779de0ae3a6a26fca4bc5f164523cdeca1ea1417282e0a2e2826
+    .agents/skills/grill-me/SKILL.md: sha256:498b779d77aaa32d1fd63681f2b730994664f619bb9fcb7f64148e9a25b53e5f
     .agents/skills/grill-me/agents/openai.yaml: sha256:df87b746de7afea687d4f3a2575a7247d5974f049b89a4163435bcd8253a062f
-    .agents/skills/grill-me/references/sample_questionnaire.md: sha256:3adbc0e0a7fc626fd285088606de43ac081f6594fdac41ba87e7d7dcc53ec818
-    .agents/skills/japanese-tech-writing/README.md: sha256:4dd74bc6550dfd735c1f9fe10075be59b6049b4cd27dea831151225a3fc8718c
-    .agents/skills/japanese-tech-writing/SKILL.md: sha256:65b14cfc4adc27b70ddde7d709ac7052b6a823f45fdb5e71b4308b0e28c2e9cd
-    .agents/skills/kanary-transcribe-media/SKILL.md: sha256:f450ebd527f2499b21b63ad38d167d5dfd92561bf6a3f1f94eb062badd9bf7ce
+    .agents/skills/grill-me/references/sample_questionnaire.md: sha256:f860f2f6fe6c48b3f58c90b619b44e6ef0a2beb9ae7d09e1f677e434a91ff13c
+    .agents/skills/japanese-writing/SKILL.md: sha256:7b581d61fbda2d6765c09f52b9713b8984c4fe1ea2aa9c2a28be28e971727628
+    .agents/skills/japanese-writing/agents/openai.yaml: sha256:f3031ce31e7df2fbc1e0426ed8e4a5e298a545720724282ab2047d8089cae0f4
+    .agents/skills/japanese-writing/references/README.md: sha256:4dd74bc6550dfd735c1f9fe10075be59b6049b4cd27dea831151225a3fc8718c
+    .agents/skills/japanese-writing/references/japanese-tech-writing.md: sha256:65b14cfc4adc27b70ddde7d709ac7052b6a823f45fdb5e71b4308b0e28c2e9cd
+    .agents/skills/kanary-transcribe-media/SKILL.md: sha256:32d8d3b9c99f5d871b10542493e797db615210d3721210aa5a88a96db7a605a4
     .agents/skills/kanary-transcribe-media/agents/openai.yaml: sha256:01e0f5603dc26d946212aac47dd88d313a48b4429263299ba0f16e84ea37ac3e
-    .agents/skills/kanary-transcribe-media/assets/sample.transcript.md: sha256:07faa6d191f8edd471a760de8868b1fac2481767e10be2c91849d379d8aeaace
+    .agents/skills/kanary-transcribe-media/assets/sample.transcript.md: sha256:39a667f9e3e049d4973defa52e8d9cca2c1514e7f5fbe50f481dba730627aea4
     .agents/skills/kanary-transcribe-media/assets/sample.wav: sha256:55138acced16f228f411145dd119d83a4bd5e70f4e9adb47b97af5b06598064e
     .agents/skills/kanary-transcribe-media/scripts/extract_mp4_audio.py: sha256:9e1ad0d215451d43a5beefd4d094e10d1f6f2c95b80d1a6c79eac81d31239f81
-    .agents/skills/kanary-transcribe-media/scripts/render_transcript_markdown.py: sha256:6b2a9674b9238302b05f3497b5866330135f734c1efb023362598d2766fbb968
+    .agents/skills/kanary-transcribe-media/scripts/render_transcript_markdown.py: sha256:b363adae11f0c48717f8267c2681cb5b486bd5b9978244c9e208848049128cdc
     .agents/skills/lean-code/SKILL.md: sha256:cf0d39a3125362ef4b9b7a13b309a4ca4691a17603b2f057ad253d841a91cd5e
     .agents/skills/lean-code/references/review_checklist.md: sha256:3ba45121eb7b52dfe9d1cdcc64ca74bb77dedf75fcc337f843fade186e95e7ce
-    .agents/skills/md-questionnaire/SKILL.md: sha256:959367ad48233440cd3fc3c064d917041eef625aa2f59d88e40f6f1643f83ca4
+    .agents/skills/md-questionnaire/SKILL.md: sha256:e278b10ca63e05b84b77e415ec9de1344ea92125f8a932ca37fc36e447647e32
     .agents/skills/md-questionnaire/agents/openai.yaml: sha256:6507c394a41e914da38d241ffcac830a9e5866ac765f2c081e37471cff7b7b25
-    .agents/skills/md-questionnaire/references/sample_questionnaire.md: sha256:71dae628cab90fb4477e2b816109fbd0e85cf79efe3a91d7aff0b40f6d71b94c
+    .agents/skills/md-questionnaire/references/sample_questionnaire.md: sha256:9172ab0389cb218bc07c99d272194b8c950909844728326cd6da4c6797d96a04
     .agents/skills/pulp-log-diagnostics/SKILL.md: sha256:3d7cb09179b47df9a2863d3f4f2f84abac0449c7acf2906b60065c3f74965587
     .agents/skills/pulp-log-diagnostics/agents/openai.yaml: sha256:40db00241c4cd2824a55549fa74250e8c6371d0dd097bdf17b492af8406249d0
     .agents/skills/pulp-log-diagnostics/references/diagnostic-rules.md: sha256:47d8cdde26989317a68a1e730767990ca50d4c34aa4a3a93332dd41cef0fe960
     .agents/skills/pulp-log-diagnostics/references/iis-playbook.md: sha256:556788f11e0e22decced2d3556c3e32523c2837578047810b6652e0ad2418493
-    .agents/skills/pulp-log-diagnostics/scripts/analyze_pulp_logs.py: sha256:7572cc7276ceaf8263e7e9768817efb92225079e15b331b714cfc905058917ba
+    .agents/skills/pulp-log-diagnostics/scripts/analyze_pulp_logs.py: sha256:04fa3782d6cf622b7060b3314e8c462b0dc465d18732e7927a54e8d46c240bce
     .agents/skills/pulp-log-diagnostics/scripts/run_iis.py: sha256:a83979b34244f858d36327f0364fc5cd96e3b1b24d1d96727bcf22356541318d
     .agents/skills/sdv-synthetic-data/SKILL.md: sha256:8884774784d4747d8a24f4c31d838b23deb8c3055643384c8a4e8f06d4004ca4
     .agents/skills/sdv-synthetic-data/scripts/_sdv_utils.py: sha256:c35fcb2ae6e812149fad2fb160d0ac25b5c83bb5e05262eb96212a8885285ba7
@@ -400,5 +404,4 @@ dependencies:
     .kiro/skills/test-only-dead-code-detector/SKILL.md: sha256:cf0d160b3719a2f4332b5a7a398f639068c03ca9def6ca1040d741ea9c3354dc
     .kiro/skills/test-only-dead-code-detector/agents/openai.yaml: sha256:b9e08e9275ea989634779a32598fcc64c6d6daf74113230877c04dc79460a6c9
     .kiro/skills/test-only-dead-code-detector/scripts/find_test_only_dead_code.py: sha256:9833ad1473fa16291b191b077d3241faf328c806f145c6dc803147cd8d834388
-  content_hash: sha256:5117cf04f4392194650b19499638ba787ac1460e7766a1c3b4a12bc40288d419
-  declared_license: MIT
+  content_hash: sha256:74cb3dc31cda0991f96e5000f34d1cb8e7ad036d8e3ca644fbfbeefffbd45fda
