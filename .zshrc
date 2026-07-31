@@ -340,3 +340,13 @@ function mkcd() {
 
 # Added by APM runtime setup
 export PATH="$HOME/.apm/runtimes:$PATH"
+
+# macwinzip
+macwinzip() {
+  if (( $# == 0 )); then
+    echo "Usage: macwinzip <file-or-folder> [...]" >&2
+    return 1
+  fi
+
+  open -a MacWinZipper -- "$@"
+}
