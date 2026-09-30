@@ -65,3 +65,6 @@ DerivedData
 
 # SpecStory
 .specstory/
+
+# Local docs
+docs_local/
