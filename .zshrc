@@ -228,22 +228,33 @@ function peco-code() {
 zle -N peco-code
 bindkey '^V' peco-code
 
-# cd to a direct child folder with peco
+# cd to a direct child folder under one or more roots with peco
 function peco-open-folder() {
-    local base_dir="${FOLDER_OPENER_BASE:-}"
-    if [[ -z "$base_dir" || ! -d "$base_dir" ]]; then
-        echo "Set FOLDER_OPENER_BASE to a directory."
+    if (( ${#FOLDER_OPENER_BASE} == 0 )); then
+        echo "Set FOLDER_OPENER_BASE to a directory or an array of directories." >&2
         return 1
     fi
 
-    local selected_name
-    selected_name="$(find "$base_dir" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort -f | peco --prompt="folder >" --query "${1:-${LBUFFER:-}}")"
-    if [[ -n "$selected_name" ]]; then
+    local base_dir
+    for base_dir in "${FOLDER_OPENER_BASE[@]}"; do
+        if [[ ! -d "$base_dir" ]]; then
+            echo "Directory not found: $base_dir" >&2
+            return 1
+        fi
+    done
+
+    local selected_dir
+    selected_dir="$(
+        find "${FOLDER_OPENER_BASE[@]}" -mindepth 1 -maxdepth 1 -type d |
+            sort -f |
+            peco --prompt="folder >" --query "${1:-${LBUFFER:-}}"
+    )"
+    if [[ -n "$selected_dir" ]]; then
         if [[ -n "${WIDGET:-}" ]]; then
-            BUFFER="cd ${(q)base_dir}/${(q)selected_name}"
+            BUFFER="cd ${(q)selected_dir}"
             zle accept-line
         else
-            cd "$base_dir/$selected_name"
+            cd "$selected_dir"
         fi
     fi
 
