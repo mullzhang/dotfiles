@@ -101,7 +101,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Set FOLDER_OPENER_BASE to the parent folder containing searchable folders. Use "fld folder-name" in Alfred, then press Enter to open the selected folder in Finder.</string>
+	<string>Set FOLDER_OPENER_BASE to one or more parent folders containing searchable folders, separated by commas. Only immediate subfolders are searched. Use "fld folder-name" in Alfred, then press Enter to open the selected folder in Finder.</string>
 	<key>uidata</key>
 	<dict>
 		<key>script-filter-folders</key>

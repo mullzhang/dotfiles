@@ -7,10 +7,12 @@ Alfred workflow for finding a direct child folder by name and opening it in Find
 Set the workflow environment variable in Alfred:
 
 ```text
-FOLDER_OPENER_BASE=/path/to/folders
+FOLDER_OPENER_BASE=/path/to/folders-a,/path/to/folders-b
 ```
 
-Each direct child directory under `FOLDER_OPENER_BASE` is searchable.
+Separate parent folder paths with commas. Spaces around each path are ignored.
+Each direct child directory under these parent folders is searchable.
+Folder paths containing commas cannot be used with this format.
 
 ## Use
 
