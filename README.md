@@ -133,3 +133,23 @@ and deploy agent skills in one step. Unpinned dependencies can move to newer
 upstream commits, so an upstream package with a broken transitive dependency can
 break the update. Pin a dependency with `#<sha>` or `#<tag>` when reproducibility
 matters.
+
+Put machine-local skills under `local/apm/.apm/skills/<name>/`, with a
+`SKILL.md` in each skill directory. Apply changes with:
+
+```sh
+mise run apm-sync
+```
+
+`apm-sync` mirrors this source directory into `~/.apm/skills/`, then deploys skills
+with `apm install --global --frozen` and regenerates context with
+`apm compile --global`. It reuses the active lockfile without updating upstream
+refs. Removed source files are also removed from the mirror; `__pycache__`
+directories are excluded. If the local source directory is absent, it skips the
+mirror step. The mirror carries a `.dotfiles-managed` marker. An existing
+unmarked directory or symlink at `~/.apm/skills` causes the task to stop instead
+of replacing it.
+
+Global compilation requires a regular `apm.yml`. When setup has linked
+`~/.apm/apm.yml` to dotfiles, the task temporarily replaces that link with a
+copy for compilation, then restores the original link on success or failure.

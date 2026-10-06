@@ -101,16 +101,8 @@ description = "Update shared APM dependencies from upstream and deploy agent ski
 run = "bash ~/dotfiles/scripts/apm_install.sh shared update"
 
 [tasks."apm-sync"]
-description = "Regenerate APM runtime files from the active lockfile"
-run = """
-for skill_dir in "$HOME/.agents/skills" "$HOME/.claude/skills"; do
-  [[ -d "$skill_dir" ]] || continue
-  find "$skill_dir" -type d -name __pycache__ -prune -exec rm -rf {} +
-done
-
-apm install --global --frozen
-apm compile --global
-"""
+description = "Sync local skills and regenerate APM runtime files from the active lockfile"
+run = "bash ~/dotfiles/scripts/apm_sync.sh"
 
 [tasks.route-files]
 description = "Route any files to project folders based on config"
