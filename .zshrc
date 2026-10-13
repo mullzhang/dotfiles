@@ -38,6 +38,9 @@ alias ipy=ipython
 # terraform
 alias tf=terraform
 
+# obsidian
+alias obs='open -a Obsidian'
+
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
